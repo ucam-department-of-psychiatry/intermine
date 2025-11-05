@@ -34,7 +34,7 @@ dependencies {
     compile group: 'mockobjects', name: 'mockobjects-jdk1.3', version: '0.09'
     provided fileTree(dir: 'libs', include: '*.jar') // eventually replace torque
     testImplementation project(path: ':intermine-testresources', configuration: 'testArtifacts')
-    antlr name: 'antlr-2.7.6-caching'
+    antlr 'org.antlr:antlr:2.7.6-caching'
 }
 
 jar {
