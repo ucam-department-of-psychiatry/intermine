@@ -29,7 +29,7 @@ subprojects {
 
     if (it.name != 'intermine-resources') {
         dependencies {
-            implementation 'ant:ant:1.6.5'
+            implementation 'org.apache.ant:ant:1.10.15'
             implementation 'org.apache.logging.log4j:log4j-1.2-api:2.17.1'
             implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.17.1'
             testImplementation 'junit:junit:4.8.2'
