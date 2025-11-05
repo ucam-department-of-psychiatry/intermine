@@ -23,7 +23,7 @@ dependencies {
     compile project(':intermine-model')
     implementation 'org.postgresql:postgresql:42.7.8'
     implementation 'commons-io:commons-io:2.20.0'
-    compile group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.3'
+    implementation 'commons-beanutils:commons-beanutils:1.11.0'
     compile group: 'com.zaxxer', name: 'HikariCP', version: '3.2.0', transitive: false // conflict with log4j library this JAR needs
     //compile 'org.slf4j:slf4j-jdk14:1.7.10' // hikari needs this
 
