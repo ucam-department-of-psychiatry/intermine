@@ -55,7 +55,7 @@ dependencies {
 
     providedCompile 'org.bouncycastle:bcprov-jdk18on:1.82'
     runtimeOnly group: 'commons-io', name: 'commons-io', version: '2.0.1'
-    runtimeOnly group: 'org.apache.commons:commons-collections4:4.5.0'
+    runtimeOnly 'org.apache.commons:commons-collections4:4.5.0'
     runtimeOnly 'org.apache.commons:commons-lang3:3.19.0'
     runtimeOnly group: 'commons-codec', name: 'commons-codec', version: '1.15'
     runtimeOnly 'taglibs:string:1.1.0'
