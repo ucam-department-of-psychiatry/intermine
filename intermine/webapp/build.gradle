@@ -56,7 +56,7 @@ dependencies {
 
     runtimeOnly group: 'commons-io', name: 'commons-io', version: '2.0.1'
     runtimeOnly group: 'commons-collections', name: 'commons-collections', version: '3.2'
-    runtimeOnly group: 'commons-lang', name: 'commons-lang', version: '2.6'
+    runtimeOnly 'org.apache.commons:commons-lang3:3.19.0'
     runtimeOnly group: 'commons-codec', name: 'commons-codec', version: '1.15'
     runtimeOnly 'taglibs:string:1.1.0'
     runtimeOnly group: 'fastutil', name: 'fastutil', version: '5.0.9'
