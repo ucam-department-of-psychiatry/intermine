@@ -52,8 +52,8 @@ dependencies {
     providedCompile group: 'javax.servlet.jsp', name: 'javax.servlet.jsp-api', version: '2.3.1'
     providedCompile group: 'org.expressme', name: 'JOpenId', version: '1.08'
     implementation group: 'org.apache.commons', name: 'commons-math3', version: '3.2'
-    providedCompile group: 'org.bouncycastle', name: 'bcprov-jdk15on', version: '1.50'
 
+    providedCompile 'org.bouncycastle:bcprov-jdk18on:1.82'
     runtimeOnly group: 'commons-io', name: 'commons-io', version: '2.0.1'
     runtimeOnly group: 'commons-collections', name: 'commons-collections', version: '3.2'
     runtimeOnly 'org.apache.commons:commons-lang3:3.19.0'
