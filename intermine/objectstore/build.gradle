@@ -32,12 +32,12 @@ dependencies {
     compile group: 'mockobjects', name: 'mockobjects-core', version: '0.09'
     compile group: 'mockobjects', name: 'mockobjects-jdk1.3', version: '0.09'
     provided fileTree(dir: 'libs', include: '*.jar') // eventually replace torque
-    testCompile project(path: ':intermine-testresources', configuration: 'testArtifacts')
+    testImplementation project(path: ':intermine-testresources', configuration: 'testArtifacts')
     antlr name: 'antlr-2.7.6-caching'
 }
 
 jar {
-    dependsOn configurations.runtime
+    dependsOn configurations.runtimeOnly
     // put all the JARs included in `provided` config and include them in the JAR
     from {
         (configurations.provided).collect {
@@ -45,4 +45,3 @@ jar {
         }
     }
 }
-

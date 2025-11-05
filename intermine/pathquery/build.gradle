@@ -25,8 +25,8 @@ sourceSets {
 tasks.test.dependsOn(':intermine-testresources:buildDB')
 
 dependencies {
-    compile project(':intermine-model')
-    compile group: 'commons-lang', name: 'commons-lang', version: '2.6'
+    implementation project(':intermine-model')
+    implementation group: 'commons-lang', name: 'commons-lang', version: '2.6'
     antlr name: 'antlr-2.7.6-caching'
-    runtime group: 'stax', name: 'stax', version: '1.2.0'
+    runtimeOnly group: 'stax', name: 'stax', version: '1.2.0'
 }

@@ -11,9 +11,9 @@ dependencies {
     commonResources project(':intermine-resources')
 
      // We need this dependency because the pre-generated userprofile classes and model XML are here, which is necessary to build the userprofile-test db
-    testCompile project(':intermine-api')
-    testCompile project(':intermine-objectstore')
-    testCompile 'commons-lang:commons-lang:2.6'
+    testImplementation project(':intermine-api')
+    testImplementation project(':intermine-objectstore')
+    testImplementation 'commons-lang:commons-lang:2.6'
 }
 
 void generateModel(model, destination, type) {
@@ -23,12 +23,12 @@ void generateModel(model, destination, type) {
             dirset(dir: 'src/test/resources/')
             pathelement(path: configurations.testCompile.asPath)
         }
-    }   
+    }
 
     ant.modelOutputTask(model: model, destDir: destination, type: type)
 }
 
-task generateTestModel {
+tasks.register('generateTestModel') {
     description "generate the testmodel Java files from the data model, eg. Employee.java"
     doLast {
         generateModel('testmodel', 'src/test/java', 'java')
@@ -48,7 +48,8 @@ void insertDataModel(model, osname) {
     ant.insertModelTask(osname: osname, modelName: model)
 }
 
-task insertModel (dependsOn: 'buildDB') {
+tasks.register('insertModel') {
+    dependsOn 'buildDB'
     description "put the generated model file into the intermine_metadata table"
 
     doLast {
@@ -56,7 +57,7 @@ task insertModel (dependsOn: 'buildDB') {
     }
 }
 
-task copyDefaultProperties(type: Copy) {
+tasks.register('copyDefaultProperties', Copy) {
     description "Copies default.intermine.test.properties file (from resources project) into resources output to be included in the war"
 
     from({ zipTree(configurations.commonResources.singleFile) }) {
@@ -80,10 +81,12 @@ processTestResources {
         fileName.replace('intermine-test.properties', 'intermine.properties')
     }
 
-    inputs.sourceFiles.stopExecutionIfEmpty()
+    // TODO: Replace somehow with @SkipWhenEmpty
+    // https://docs.gradle.org/current/userguide/upgrading_version_4.html
+    // inputs.sourceFiles.stopExecutionIfEmpty()
 }
 
-task buildTestModelJar(type: Jar) {
+tasks.register('buildTestModelJar', Jar) {
     from(sourceSets.test.output)
 }
 
@@ -103,7 +106,7 @@ void grantPrivileges(dbName) {
     }
 }
 
-task createUnitTestDatabases {
+tasks.register('createUnitTestDatabases') {
     description "create databases needed for unit tests"
     doLast {
         // just fail silently if DB is already there. Instead we could read in the list of DBs and only
@@ -125,7 +128,7 @@ task createUnitTestDatabases {
 
 // this only works correctly after you stop the gradlew process. --stop. otherwise it keeps the connection to unittest
 // this is incorrect as the tests should drop the database connections themselves
-task dropDBs {
+tasks.register('dropDBs') {
     description "drop all the test databases. used for debugging only."
     doLast {
         exec {
@@ -199,7 +202,7 @@ void generateSchema(osname, model) {
     ant.torque(osname: "os.$osname", destFile:"$buildDir/os.$osname-schema.xml")
 }
 
-task buildDB {
+tasks.register('buildDB') {
     dependsOn 'compileTestJava'
     dependsOn 'createUnitTestDatabases'
     dependsOn 'generateTestModel'
