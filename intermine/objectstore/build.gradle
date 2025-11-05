@@ -48,5 +48,5 @@ jar {
 }
 
 artifacts {
-    testOutput sourceSets.test.output
+    testOutput sourceSets.test.output.files
 }

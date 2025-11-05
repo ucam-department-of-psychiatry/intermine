@@ -63,8 +63,8 @@ dependencies {
     runtimeOnly group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
 
     testImplementation project(path: ':intermine-testresources', configuration: 'testArtifacts')
-    testImplementation project(':intermine-objectstore').sourceSets.test.output
-    testImplementation project(':intermine-api').sourceSets.test.output
+    testImplementation project(path: ':intermine-objectstore', configuration: 'testOutput')
+    testImplementation project(path: ':intermine-api', configuration: 'testOutput')
     testImplementation group: 'org.objenesis', name: 'objenesis', version: '2.1'
     testImplementation group: 'org.easymock', name: 'easymock', version: '3.2'
     testImplementation group: 'xmlunit', name: 'xmlunit', version: '1.0'

@@ -22,6 +22,7 @@ tasks.test.dependsOn(':intermine-testresources:buildDB')
 configurations {
     provided
     compile.extendsFrom provided
+    testOutput
 }
 
 dependencies {
@@ -49,4 +50,8 @@ jar {
             it.isDirectory() ? it : zipTree(it)
         }
     }
+}
+
+artifacts {
+    testOutput sourceSets.test.output.files
 }
