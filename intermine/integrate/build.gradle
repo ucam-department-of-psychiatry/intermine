@@ -4,7 +4,7 @@ dependencies {
     implementation project(':intermine-objectstore')
     implementation group: 'stax', name: 'stax', version: '1.2.0' //stax-ri 1.0 not available on maven
     testImplementation group: 'xmlunit', name: 'xmlunit', version: '1.6'
-    testImplementation project(':intermine-objectstore').sourceSets.test.output
+    testImplementation project(path: ':intermine-objectstore', configuration: 'testOutput')
     testImplementation project(path: ':intermine-testresources', configuration: 'testArtifacts')
     testImplementation project(':intermine-resources')
 }

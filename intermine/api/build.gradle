@@ -37,7 +37,7 @@ dependencies {
     compile group: "org.apache.jena", name: "apache-jena-libs", version: "4.2.0"
     testImplementation project(path: ':intermine-testresources', configuration: 'testArtifacts')
     testImplementation group: 'xmlunit', name: 'xmlunit', version: '1.0'
-    testImplementation project(':intermine-objectstore').sourceSets.test.output
+    testImplementation project(path: ':intermine-objectstore', configuration: 'testOutput')
     testImplementation project(':intermine-resources')
 }
 
