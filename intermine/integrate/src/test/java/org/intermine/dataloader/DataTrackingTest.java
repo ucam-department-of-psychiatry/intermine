@@ -47,40 +47,40 @@ public class DataTrackingTest extends TestCase {
         }
 
         try {
-            dt.setSource(new Integer(46), "name", new Source("dummy"));
+            dt.setSource(Integer.valueOf(46), "name", new Source("dummy"));
             fail("Expected NullPointerException");
         } catch (NullPointerException e) {
         }
 
         try {
-            dt.setSource(new Integer(46), null, source1);
+            dt.setSource(Integer.valueOf(46), null, source1);
             fail("Expected NullPointerException");
         } catch (NullPointerException e) {
         }
     }
 
     public void testGetSource() throws Exception {
-        dt.setSource(new Integer(13), "name", source1);
-        assertEquals(source1.getName(), dt.getSource(new Integer(13), "name").getName());
+        dt.setSource(Integer.valueOf(13), "name", source1);
+        assertEquals(source1.getName(), dt.getSource(Integer.valueOf(13), "name").getName());
 
         for (int i = 100; i < 200; i++) {
-            dt.setSource(new Integer(i), "name", source2);
+            dt.setSource(Integer.valueOf(i), "name", source2);
         }
 
-        assertEquals(source1.getName(), dt.getSource(new Integer(13), "name").getName());
+        assertEquals(source1.getName(), dt.getSource(Integer.valueOf(13), "name").getName());
     }
     
     // This is to investigate a possible bug where the version numbers are initialised from zero
     // for each data source, instead of continuing.
     public void testWrongOrderBug() throws Exception {
-        dt.setSource(new Integer(13), "name", source1);
+        dt.setSource(Integer.valueOf(13), "name", source1);
         dt.flush();
-        dt.setSource(new Integer(14), "name", source1);
+        dt.setSource(Integer.valueOf(14), "name", source1);
         dt.flush();
         DataTracker dt2 = new DataTracker(DatabaseFactory.getDatabase("db.unittest"), 30, 10);
-        dt2.setSource(new Integer(14), "name", dt2.stringToSource("Source2"));
+        dt2.setSource(Integer.valueOf(14), "name", dt2.stringToSource("Source2"));
         dt2.close();
         dt2 = new DataTracker(DatabaseFactory.getDatabase("db.unittest"), 30, 10);
-        assertEquals(source2.getName(), dt2.getSource(new Integer(14), "name").getName());
+        assertEquals(source2.getName(), dt2.getSource(Integer.valueOf(14), "name").getName());
     }
 }

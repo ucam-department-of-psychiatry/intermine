@@ -151,16 +151,16 @@ public class PollQueryAction extends InterMineAction
             request.setAttribute("qid", qid);
             request.setAttribute("trail", trail);
             if (controller.getTickleCount() < 4) {
-                request.setAttribute("POLL_REFRESH_SECONDS", new Integer(1));
+                request.setAttribute("POLL_REFRESH_SECONDS", Integer.valueOf(1));
             } else {
                 request.setAttribute("POLL_REFRESH_SECONDS",
-                                            new Integer(Constants.POLL_REFRESH_SECONDS));
+                                            Integer.valueOf(Constants.POLL_REFRESH_SECONDS));
             }
             int imgnum = ((controller.getTickleCount() + 1) % 4) + 1;
             if (controller.getTickleCount() < 4) {
-                request.setAttribute("imgnum", new Integer(1));
+                request.setAttribute("imgnum", Integer.valueOf(1));
             } else {
-                request.setAttribute("imgnum", new Integer(imgnum));
+                request.setAttribute("imgnum", Integer.valueOf(imgnum));
             }
 
             // there are different action mappings for different kinds of

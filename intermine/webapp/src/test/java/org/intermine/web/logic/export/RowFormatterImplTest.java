@@ -27,7 +27,7 @@ public class RowFormatterImplTest extends TestCase
      */
     public void testFormat() {
         RowFormatterImpl formatter = new RowFormatterImpl(",", true);
-        Object o1 = new Integer(1);
+        Object o1 = Integer.valueOf(1);
         Object o2 = new Date();
         Object o3 = "test";
         List<Object> objs = new ArrayList<Object>();

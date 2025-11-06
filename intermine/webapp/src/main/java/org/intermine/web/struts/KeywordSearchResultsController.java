@@ -173,14 +173,14 @@ public class KeywordSearchResultsController extends TilesAction
 
         // time for debugging
         long totalTime = System.currentTimeMillis() - time;
-        context.putAttribute("searchTime", new Long(totalTime));
+        context.putAttribute("searchTime", Long.valueOf(totalTime));
         LOG.debug("--> TOTAL: " + (System.currentTimeMillis() - time) + " ms");
         return null;
     }
 
     private int getOffset(HttpServletRequest request) {
         // offset (-> paging)
-        Integer offset = new Integer(0);
+        Integer offset = Integer.valueOf(0);
         try {
             if (!StringUtils.isBlank(request.getParameter("searchOffset"))) {
                 offset = Integer.valueOf(request.getParameter("searchOffset"));

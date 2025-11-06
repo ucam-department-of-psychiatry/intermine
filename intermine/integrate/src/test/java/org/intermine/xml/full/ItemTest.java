@@ -304,7 +304,7 @@ public class ItemTest extends TestCase
         List idsToAdd = new ArrayList();
 
         idsToAdd.add("contractor_id_1");
-        idsToAdd.add(new Integer(10));
+        idsToAdd.add(Integer.valueOf(10));
 
         try {
             item1.setCollection("contractors", idsToAdd);

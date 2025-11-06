@@ -113,7 +113,7 @@ public final class PerformanceTester
             for (int i = 1; i < threadCount; i++) {
                 Thread worker = new Thread(new Worker(productionOs, classKeys, bagQueryConfig,
                             threads, iter, i));
-                threads.add(new Integer(i));
+                threads.add(Integer.valueOf(i));
                 worker.start();
             }
         }
@@ -231,7 +231,7 @@ public final class PerformanceTester
             } finally {
                 //System .out.println("Thread " + threadNo + " finished");
                 synchronized (threads) {
-                    threads.remove(new Integer(threadNo));
+                    threads.remove(Integer.valueOf(threadNo));
                     threads.notify();
                 }
             }

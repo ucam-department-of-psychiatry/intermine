@@ -33,9 +33,9 @@ public class NotXmlTest extends TestCase
     public void test1() throws Exception {
         Employee e = new Employee();
         Department d = new Department();
-        e.setId(new Integer(1234));
+        e.setId(Integer.valueOf(1234));
         e.setName("Employee1");
-        d.setId(new Integer(5678));
+        d.setId(Integer.valueOf(5678));
         e.setDepartment(d);
 
         String expected = NotXmlParser.DELIM + "org.intermine.model.testmodel.Employee"
@@ -58,13 +58,13 @@ public class NotXmlTest extends TestCase
         Employee obj1 = (Employee) NotXmlParser.parse(s, os);
 
         assertEquals("Employee1", obj1.getName());
-        assertEquals(new Integer(1234), obj1.getId());
+        assertEquals(Integer.valueOf(1234), obj1.getId());
         Class c = Employee.class;
         java.lang.reflect.Field f = c.getDeclaredField("department");
         f.setAccessible(true);
         ProxyReference o = (ProxyReference) f.get(obj1);
         assertNotNull(o);
-        assertEquals(new Integer(5678), o.getId());
+        assertEquals(Integer.valueOf(5678), o.getId());
     }
 
     public void testParseDynamic() throws Exception {
@@ -79,16 +79,16 @@ public class NotXmlTest extends TestCase
 
         assertEquals("CompanyC", obj1.getName());
         assertEquals(100, obj1.getVatNumber());
-        assertEquals(new Integer(74350), obj1.getId());
+        assertEquals(Integer.valueOf(74350), obj1.getId());
         Map fieldMap = ((DynamicBean) ((net.sf.cglib.proxy.Factory) obj1).getCallback(0)).getMap();
         ProxyReference addressRef = (ProxyReference) fieldMap.get("address");
         assertNotNull(addressRef);
-        assertEquals(new Integer(74328), addressRef.getId());
+        assertEquals(Integer.valueOf(74328), addressRef.getId());
     }
 
     public void testHandleDelims() throws Exception {
         Employee e = new Employee();
-        e.setId(new Integer(2874));
+        e.setId(Integer.valueOf(2874));
         e.setName("Flibble $_^ Wotsit");
 
         String notXml = NotXmlRenderer.render(e).toString();

@@ -436,7 +436,7 @@ public abstract class ObjectStoreAbstractImpl implements ObjectStore
             }
             if (s == null) {
                 synchronized (rand) {
-                    s = new Integer(rand.nextInt());
+                    s = Integer.valueOf(rand.nextInt());
                 }
                 sequenceNumber.put(key, s);
                 sequenceKeys.put(key, new WeakReference<Object>(key));
@@ -458,7 +458,7 @@ public abstract class ObjectStoreAbstractImpl implements ObjectStore
                 Object realKey = keyRef.get();
                 Integer value = sequenceNumber.get(key);
                 if (realKey != null) {
-                    sequenceNumber.put(realKey, new Integer(value.intValue() + 1));
+                    sequenceNumber.put(realKey, Integer.valueOf(value.intValue() + 1));
                 }
             }
         }

@@ -20,15 +20,15 @@ public class UtilTest extends TestCase
 
     public void testEquals() {
         assertTrue(org.intermine.metadata.Util.equals(null, null));
-        assertTrue(org.intermine.metadata.Util.equals(new Integer(10), new Integer(10)));
-        assertTrue(org.intermine.metadata.Util.equals(new Integer(20), new Integer(10)) == false);
-        assertTrue(org.intermine.metadata.Util.equals(null, new Integer(10)) == false);
-        assertTrue(org.intermine.metadata.Util.equals(new Integer(10), null) == false);
+        assertTrue(org.intermine.metadata.Util.equals(Integer.valueOf(10), new Integer(10)));
+        assertTrue(org.intermine.metadata.Util.equals(Integer.valueOf(20), new Integer(10)) == false);
+        assertTrue(org.intermine.metadata.Util.equals(null, Integer.valueOf(10)) == false);
+        assertTrue(org.intermine.metadata.Util.equals(Integer.valueOf(10), null) == false);
     }
 
     public void testHashCode() {
         assertTrue(org.intermine.metadata.Util.hashCode(null) == 0);
-        assertTrue(org.intermine.metadata.Util.hashCode(new Integer(10)) != 0);
+        assertTrue(org.intermine.metadata.Util.hashCode(Integer.valueOf(10)) != 0);
     }
 
 

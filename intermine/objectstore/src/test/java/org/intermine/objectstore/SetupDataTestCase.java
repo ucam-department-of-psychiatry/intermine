@@ -130,7 +130,7 @@ public abstract class SetupDataTestCase extends ObjectStoreQueriesTestCase
         Iterator iter = c.iterator();
         while (iter.hasNext()) {
             try {
-                DynamicUtil.setFieldValue(iter.next(), "id", new Integer(i++));
+                DynamicUtil.setFieldValue(iter.next(), "id", Integer.valueOf(i++));
             } catch (IllegalArgumentException e) {
             }
         }
@@ -145,7 +145,7 @@ public abstract class SetupDataTestCase extends ObjectStoreQueriesTestCase
 
         Contractor contractorA = (Contractor) DynamicUtil.createObject(new HashSet(Arrays.asList(new Class[] {Contractor.class, Broke.class})));
         contractorA.setName("ContractorA");
-        contractorA.setSeniority(new Integer(128764));
+        contractorA.setSeniority(Integer.valueOf(128764));
         ((Broke) contractorA).setDebt(7634);
 
         Company companyB = (Company) DynamicUtil.createObject(Collections.singleton(Company.class));;
@@ -154,7 +154,7 @@ public abstract class SetupDataTestCase extends ObjectStoreQueriesTestCase
 
         Contractor contractorB = new Contractor();
         contractorB.setName("ContractorB");
-        contractorB.setSeniority(new Integer(62341));
+        contractorB.setSeniority(Integer.valueOf(62341));
 
         Address address1 = new Address();
         address1.setAddress("Contractor Business Street, BVille");
@@ -174,7 +174,7 @@ public abstract class SetupDataTestCase extends ObjectStoreQueriesTestCase
         employeeB1.setAge(40);
         employeeB1.setTitle("Mr.");
         employeeB1.setSalary(45000);
-        employeeB1.setSeniority(new Integer(76321));
+        employeeB1.setSeniority(Integer.valueOf(76321));
         ((Broke) employeeB1).setDebt(340);
 
         Address address4 = new Address();
@@ -192,7 +192,7 @@ public abstract class SetupDataTestCase extends ObjectStoreQueriesTestCase
         employeeB3.setName("EmployeeB3");
         employeeB3.setFullTime(true);
         employeeB3.setAge(60);
-        employeeB3.setSeniority(new Integer(761231));
+        employeeB3.setSeniority(Integer.valueOf(761231));
 
         Address address5 = new Address();
         address5.setAddress("Contractor Business Street, AVille");
@@ -210,7 +210,7 @@ public abstract class SetupDataTestCase extends ObjectStoreQueriesTestCase
         employeeA1.setName("EmployeeA1");
         employeeA1.setFullTime(true);
         employeeA1.setAge(10);
-        employeeA1.setSeniority(new Integer(876123));
+        employeeA1.setSeniority(Integer.valueOf(876123));
 
         Address address8 = new Address();
         address8.setAddress("Employee Street, AVille");
@@ -243,11 +243,11 @@ public abstract class SetupDataTestCase extends ObjectStoreQueriesTestCase
         types1.setIntType(267);
         types1.setLongType(98729353495843l);
         types1.setBooleanObjType(Boolean.TRUE);
-        types1.setFloatObjType(new Float(1.6F));
-        types1.setDoubleObjType(new Double(1.88D));
-        types1.setShortObjType(new Short((short) 1982));
-        types1.setIntObjType(new Integer(369));
-        types1.setLongObjType(new Long(38762874323212l));
+        types1.setFloatObjType(Float.valueOf(1.6F));
+        types1.setDoubleObjType(Double.valueOf(1.88D));
+        types1.setShortObjType(Short.valueOf((short) 1982));
+        types1.setIntObjType(Integer.valueOf(369));
+        types1.setLongObjType(Long.valueOf(38762874323212l));
         types1.setBigDecimalObjType(new BigDecimal("876323428764587621764532432.8768173432887324123645"));
         types1.setStringObjType("A test String");
         types1.setDateObjType(new Date(7777777l));
@@ -358,7 +358,7 @@ public abstract class SetupDataTestCase extends ObjectStoreQueriesTestCase
         if (name != null) {
             return name.invoke(o, new Object[] {});
         } else if (o instanceof InterMineObject) {
-            return new Integer(o.hashCode());
+            return Integer.valueOf(o.hashCode());
         } else {
             return o;
         }
@@ -391,7 +391,7 @@ public abstract class SetupDataTestCase extends ObjectStoreQueriesTestCase
         if (name != null) {
             return name.invoke(o, new Object[] {});
         } else if (o instanceof InterMineObject) {
-            return new Integer(o.hashCode());
+            return Integer.valueOf(o.hashCode());
         } else {
             return o;
         }
@@ -700,7 +700,7 @@ public abstract class SetupDataTestCase extends ObjectStoreQueriesTestCase
         QueryClass qc = new QueryClass(new HashSet(Arrays.asList(new Class[] {Broke.class, Employable.class})));
         q.addFrom(qc);
         q.addToSelect(qc);
-        q.setConstraint(new BagConstraint(qc, ConstraintOp.IN, new HashSet(Arrays.asList(new Object[] {data.get("EmployeeA1"), data.get("CompanyA"), new Integer(5), data.get("EmployeeB1")}))));
+        q.setConstraint(new BagConstraint(qc, ConstraintOp.IN, new HashSet(Arrays.asList(new Object[] {data.get("EmployeeA1"), data.get("CompanyA"), Integer.valueOf(5), data.get("EmployeeB1")}))));
         q.setDistinct(false);
         return q;
     }*/
@@ -828,7 +828,7 @@ public abstract class SetupDataTestCase extends ObjectStoreQueriesTestCase
         q.addToSelect(qc);
         ConstraintSet cs = new ConstraintSet(ConstraintOp.NAND);
         cs.addConstraint(new ContainsConstraint(new QueryCollectionReference(qcb, "employees"), ConstraintOp.CONTAINS, qc));
-        cs.addConstraint(new SimpleConstraint(new QueryValue(new Integer(1)), ConstraintOp.EQUALS, new QueryValue(new Integer(1))));
+        cs.addConstraint(new SimpleConstraint(new QueryValue(Integer.valueOf(1)), ConstraintOp.EQUALS, new QueryValue(new Integer(1))));
         q.setConstraint(cs);
         q.setDistinct(false);
         return q;
@@ -847,7 +847,7 @@ public abstract class SetupDataTestCase extends ObjectStoreQueriesTestCase
         q.addToSelect(qc);
         ConstraintSet cs = new ConstraintSet(ConstraintOp.NOR);
         cs.addConstraint(new ContainsConstraint(new QueryCollectionReference(qcb, "employees"), ConstraintOp.CONTAINS, qc));
-        cs.addConstraint(new SimpleConstraint(new QueryValue(new Integer(1)), ConstraintOp.EQUALS, new QueryValue(new Integer(1))));
+        cs.addConstraint(new SimpleConstraint(new QueryValue(Integer.valueOf(1)), ConstraintOp.EQUALS, new QueryValue(new Integer(1))));
         q.setConstraint(cs);
         q.setDistinct(false);
         return q;

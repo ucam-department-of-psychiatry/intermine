@@ -148,7 +148,7 @@ public class ObjectTrailController extends TilesAction
             } else {
                 InterMineObject o = null;
                 try {
-                    o = os.getObjectById(new Integer(breadcrumbs[0]));
+                    o = os.getObjectById(Integer.valueOf(breadcrumbs[0]));
                 } catch (NumberFormatException err) {
                     LOG.warn("bad object id " + breadcrumbs[0]);
                     continue;

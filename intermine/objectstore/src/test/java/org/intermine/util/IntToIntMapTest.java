@@ -29,7 +29,7 @@ public class IntToIntMapTest extends TestCase
         assertEquals(2, map.size());
         assertEquals("{4 -> 6, 30000 -> 7643}", map.toString());
 
-        map.put(new Integer(4), null);
+        map.put(Integer.valueOf(4), null);
         map.put(30000, -1);
 
         assertEquals(-1, map.get(4));

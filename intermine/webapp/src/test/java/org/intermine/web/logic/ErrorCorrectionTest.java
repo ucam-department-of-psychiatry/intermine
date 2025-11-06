@@ -17,7 +17,7 @@ import org.junit.Test;
 public class ErrorCorrectionTest
 {
     private final static int REFERENCE_SIZE = 5000;
-    private static final Double max = new Double(1.0);
+    private static final Double max = Double.valueOf(1.0);
 
     private static Map<String, BigDecimal> pvalues;
     private static Map<String, String> bonferroni, benjamini, bonferroniHolm;

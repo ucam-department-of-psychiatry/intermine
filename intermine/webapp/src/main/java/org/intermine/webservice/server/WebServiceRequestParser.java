@@ -41,12 +41,12 @@ public class WebServiceRequestParser
     /** Name of size parameter that determines number of returned results. */
     public static final String LIMIT_PARAMETER = "size";
 
-    private static final Integer DEFAULT_START = new Integer(0);
+    private static final Integer DEFAULT_START = Integer.valueOf(0);
 
     /** 10 000 000 default size actually means that web service will return all results */
-    public static final Integer DEFAULT_LIMIT = new Integer(10000000);
+    public static final Integer DEFAULT_LIMIT = Integer.valueOf(10000000);
 
-    private static final Integer MAX_LIMIT = new Integer(10000000);
+    private static final Integer MAX_LIMIT = Integer.valueOf(10000000);
 
     /** Value of parameter when user wants xml output to be returned. **/
     public static final String FORMAT_PARAMETER_XML = "xml";

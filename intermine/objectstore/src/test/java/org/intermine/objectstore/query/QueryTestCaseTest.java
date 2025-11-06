@@ -140,7 +140,7 @@ public class QueryTestCaseTest extends QueryTestCase
 
     public void testQueriesClassConstraint() throws Exception {
         Department dept = new Department();
-        dept.setId(new Integer(14));
+        dept.setId(Integer.valueOf(14));
 
         Query q1 = new Query();
         QueryClass qc1 = new QueryClass(Department.class);
@@ -160,7 +160,7 @@ public class QueryTestCaseTest extends QueryTestCase
 
         assertEquals(q1, q2);
         Department d1 = new Department();
-        d1.setId(new Integer(25));
+        d1.setId(Integer.valueOf(25));
         c2 = new ClassConstraint(qc2, ConstraintOp.EQUALS, d1);
         q2.setConstraint(c2);
 

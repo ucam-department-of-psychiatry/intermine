@@ -641,7 +641,7 @@ public class BagManager
         Map<Integer, InterMineBag> osBagIdToInterMineBag = new HashMap<Integer, InterMineBag>();
 
         for (InterMineBag imBag : imBags) {
-            osBagIdToInterMineBag.put(new Integer(imBag.getOsb().getBagId()), imBag);
+            osBagIdToInterMineBag.put(Integer.valueOf(imBag.getOsb().getBagId()), imBag);
         }
         return osBagIdToInterMineBag;
     }

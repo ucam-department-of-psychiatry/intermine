@@ -76,39 +76,39 @@ public class WebResultsTest extends InterMineAPITestCase
         // Set up some known objects in the first 3 results rows
         department1 = new Department();
         department1.setName("Department1");
-        department1.setId(new Integer(4));
+        department1.setId(Integer.valueOf(4));
         department2 = new Department();
         department2.setName("Department2");
-        department2.setId(new Integer(5));
+        department2.setId(Integer.valueOf(5));
         department3 = new Department();
         department3.setName("Department3");
-        department3.setId(new Integer(6));
+        department3.setId(Integer.valueOf(6));
 
         company1 = (Company) DynamicUtil.createObject(Collections.singleton(Company.class));
         company1.setName("Company1");
         company1.setVatNumber(101);
-        company1.setId(new Integer(1));
+        company1.setId(Integer.valueOf(1));
         company2 = (Company) DynamicUtil.createObject(Collections.singleton(Company.class));
         company2.setName("Company2");
         company2.setVatNumber(102);
-        company2.setId(new Integer(2));
+        company2.setId(Integer.valueOf(2));
         company3 = (Company) DynamicUtil.createObject(Collections.singleton(Company.class));
         company3.setName("Company3");
         company3.setVatNumber(103);
-        company3.setId(new Integer(3));
+        company3.setId(Integer.valueOf(3));
 
         man1 = (Manager) DynamicUtil.createObject(Collections.singleton(Manager.class));
         man1.setName("Manager1");
-        man1.setSeniority(new Integer(100));
-        man1.setId(new Integer(1));
+        man1.setSeniority(Integer.valueOf(100));
+        man1.setId(Integer.valueOf(1));
         man2 = (Manager) DynamicUtil.createObject(Collections.singleton(Manager.class));
         man2.setName("Manager2");
-        man2.setSeniority(new Integer(200));
-        man2.setId(new Integer(2));
+        man2.setSeniority(Integer.valueOf(200));
+        man2.setId(Integer.valueOf(2));
         man3 = (CEO) DynamicUtil.createObject(Collections.singleton(CEO.class));
         man3.setName("Manager3");
-        man3.setSeniority(new Integer(300));
-        man3.setId(new Integer(3));
+        man3.setSeniority(Integer.valueOf(300));
+        man3.setId(Integer.valueOf(3));
         man3.setCompany(company3);
 
         ResultsRow row = new ResultsRow();
@@ -203,18 +203,18 @@ public class WebResultsTest extends InterMineAPITestCase
         List row1 = webResults.getResultElements(0);
 
         Department dept1 = new Department();
-        dept1.setId(new Integer(4));
+        dept1.setId(Integer.valueOf(4));
         dept1.setName("Department1");
         ResultElement res1 = new ResultElement(dept1, new Path(model, "Department.name"), false);
 
         Company c1 = (Company) DynamicUtil.instantiateObject("org.intermine.model.testmodel.Company", null);
-        c1.setId(new Integer(1));
+        c1.setId(Integer.valueOf(1));
         c1.setName("Company1");
         ResultElement res2 = new ResultElement(c1, new Path(model, "Department.company.name"), false);
 
         Manager m1 = new Manager();
-        m1.setId(new Integer(1));
-        m1.setSeniority(new Integer(100));
+        m1.setId(Integer.valueOf(1));
+        m1.setSeniority(Integer.valueOf(100));
         m1.setName("Manager1");
         ResultElement res3 = new ResultElement(m1, new Path(model, "Department.manager.name"), false);
 
@@ -261,12 +261,12 @@ public class WebResultsTest extends InterMineAPITestCase
 
         assertEquals("Department1", webResults.get(0).get(0).get(0).getValue().getField());
         assertEquals("Company1", webResults.get(0).get(0).get(1).getValue().getField());
-        assertEquals(new Integer(101), webResults.get(0).get(0).get(2).getValue().getField());
+        assertEquals(Integer.valueOf(101), webResults.get(0).get(0).get(2).getValue().getField());
         assertEquals("Department2", webResults.get(1).get(0).get(0).getValue().getField());
         assertEquals("Company2", webResults.get(1).get(0).get(1).getValue().getField());
-        assertEquals(new Integer(102), webResults.get(1).get(0).get(2).getValue().getField());
+        assertEquals(Integer.valueOf(102), webResults.get(1).get(0).get(2).getValue().getField());
         assertEquals("Department3", webResults.get(2).get(0).get(0).getValue().getField());
         assertEquals("Company3", webResults.get(2).get(0).get(1).getValue().getField());
-        assertEquals(new Integer(103), webResults.get(2).get(0).get(2).getValue().getField());
+        assertEquals(Integer.valueOf(103), webResults.get(2).get(0).get(2).getValue().getField());
     }
 }

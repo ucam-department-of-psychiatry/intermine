@@ -37,9 +37,9 @@ public class FlatModeObjectStoreCommonQueriesTest extends ObjectStoreImplQueryTe
         results.put("DynamicBagConstraint2", NO_RESULT);
         results.put("OrSubquery", NO_RESULT);
         results.put("SelectClassFromInterMineObject", NO_RESULT);
-        Object[][] r = new Object[][] { { CEO.class, new Long(1) },
-                { Employee.class, new Long(3) },
-                { Manager.class, new Long(2) } };
+        Object[][] r = new Object[][] { { CEO.class, Long.valueOf(1) },
+                { Employee.class, Long.valueOf(3) },
+                { Manager.class, Long.valueOf(2) } };
         results.put("SelectClassFromEmployee", ObjectStoreTestUtils.toList(r));
         results.put("SelectClassFromBrokeEmployable", NO_RESULT);
         results.put("SubclassCollection2", NO_RESULT);

@@ -158,18 +158,18 @@ public class TypeUtilTest extends TestCase
     }
 
     public void testStringToObject() throws Exception {
-        assertEquals(new Integer(6), TypeUtil.stringToObject(Integer.class, "6"));
-        assertEquals(new Integer(6), TypeUtil.stringToObject(Integer.TYPE, "6"));
+        assertEquals(Integer.valueOf(6), TypeUtil.stringToObject(Integer.class, "6"));
+        assertEquals(Integer.valueOf(6), TypeUtil.stringToObject(Integer.TYPE, "6"));
         assertEquals(Boolean.TRUE, TypeUtil.stringToObject(Boolean.class, "true"));
         assertEquals(Boolean.TRUE, TypeUtil.stringToObject(Boolean.TYPE, "true"));
-        assertEquals(new Double(12.0d), TypeUtil.stringToObject(Double.class, "12.0"));
-        assertEquals(new Double(12.0d), TypeUtil.stringToObject(Double.TYPE, "12.0"));
-        assertEquals(new Float(6.1f), TypeUtil.stringToObject(Float.class, "6.1"));
-        assertEquals(new Float(6.1f), TypeUtil.stringToObject(Float.TYPE, "6.1"));
-        assertEquals(new Long(6), TypeUtil.stringToObject(Long.class, "6"));
-        assertEquals(new Long(6), TypeUtil.stringToObject(Long.TYPE, "6"));
-        assertEquals(new Short("6"), TypeUtil.stringToObject(Short.class, "6"));
-        assertEquals(new Short("6"), TypeUtil.stringToObject(Short.TYPE, "6"));
+        assertEquals(Double.valueOf(12.0d), TypeUtil.stringToObject(Double.class, "12.0"));
+        assertEquals(Double.valueOf(12.0d), TypeUtil.stringToObject(Double.TYPE, "12.0"));
+        assertEquals(Float.valueOf(6.1f), TypeUtil.stringToObject(Float.class, "6.1"));
+        assertEquals(Float.valueOf(6.1f), TypeUtil.stringToObject(Float.TYPE, "6.1"));
+        assertEquals(Long.valueOf(6), TypeUtil.stringToObject(Long.class, "6"));
+        assertEquals(Long.valueOf(6), TypeUtil.stringToObject(Long.TYPE, "6"));
+        assertEquals(Short.valueOf("6"), TypeUtil.stringToObject(Short.class, "6"));
+        assertEquals(Short.valueOf("6"), TypeUtil.stringToObject(Short.TYPE, "6"));
         assertEquals(new Byte("3"), TypeUtil.stringToObject(Byte.class, "3"));
         assertEquals(new Byte("3"), TypeUtil.stringToObject(Byte.TYPE, "3"));
         assertEquals(new Character('c'), TypeUtil.stringToObject(Character.class, "c"));

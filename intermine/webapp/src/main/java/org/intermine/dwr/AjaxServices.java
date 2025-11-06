@@ -470,7 +470,7 @@ public class AjaxServices
                 }
                 pageSizeResults.add(row);
             }
-            return Arrays.asList(new Object[] {pageSizeResults, qid, new Integer(rowCount)});
+            return Arrays.asList(new Object[] {pageSizeResults, qid, Integer.valueOf(rowCount)});
         } catch (RuntimeException e) {
             processException(e);
             return null;
@@ -510,10 +510,10 @@ public class AjaxServices
 
                 if (controller instanceof PageTableQueryMonitor) {
                     PagedTable pt = ((PageTableQueryMonitor) controller).getPagedTable();
-                    return new Integer(pt.getExactSize());
+                    return Integer.valueOf(pt.getExactSize());
                 }
                 if (controller instanceof QueryCountQueryMonitor) {
-                    return new Integer(((QueryCountQueryMonitor) controller).getCount());
+                    return Integer.valueOf(((QueryCountQueryMonitor) controller).getCount());
                 }
                 LOG.debug("query qid " + qid + " - unknown controller type");
                 return null;
@@ -948,7 +948,7 @@ public class AjaxServices
         HttpSession session = ctx.getSession();
         final InterMineAPI im = SessionMethods.getInterMineAPI(session);
         PagedTable pt = SessionMethods.getResultsTable(session, tableId);
-        pt.selectId(new Integer(selectedId), (new Integer(columnIndex)).intValue());
+        pt.selectId(Integer.valueOf(selectedId), (new Integer(columnIndex)).intValue());
         Map<String, List<FieldDescriptor>> classKeys = im.getClassKeys();
         ObjectStore os = im.getObjectStore();
         return pt.getFirstSelectedFields(os, classKeys);
@@ -965,7 +965,7 @@ public class AjaxServices
         HttpSession session = ctx.getSession();
         final InterMineAPI im = SessionMethods.getInterMineAPI(session);
         PagedTable pt = SessionMethods.getResultsTable(session, tableId);
-        pt.deSelectId(new Integer(deSelectId));
+        pt.deSelectId(Integer.valueOf(deSelectId));
         Map<String, List<FieldDescriptor>> classKeys = im.getClassKeys();
         ObjectStore os = im.getObjectStore();
         return pt.getFirstSelectedFields(os, classKeys);

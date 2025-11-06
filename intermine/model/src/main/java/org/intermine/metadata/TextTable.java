@@ -51,11 +51,11 @@ public class TextTable
         for (int i = 0; i < row.length; i++) {
             int width = row[i].length();
             if (i >= columnWidths.size()) {
-                columnWidths.add(i, new Integer(width));
+                columnWidths.add(i, Integer.valueOf(width));
             } else {
                 int previousWidth = columnWidths.get(i).intValue();
                 if (width > previousWidth) {
-                    columnWidths.set(i, new Integer(width));
+                    columnWidths.set(i, Integer.valueOf(width));
                 }
             }
         }

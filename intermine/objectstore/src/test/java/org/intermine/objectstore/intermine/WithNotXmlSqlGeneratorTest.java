@@ -293,7 +293,7 @@ public class WithNotXmlSqlGeneratorTest extends SqlGeneratorTest
 
     public void testInvalidClassForGetById() throws Exception {
         try {
-            SqlGenerator.generateQueryForId(new Integer(5), SqlGeneratorTest.class, getSchema());
+            SqlGenerator.generateQueryForId(Integer.valueOf(5), SqlGeneratorTest.class, getSchema());
             fail("Expected: ObjectStoreException");
         } catch (ObjectStoreException e) {
             assertEquals("class org.intermine.objectstore.intermine.SqlGeneratorTest is not in the model", e.getMessage());

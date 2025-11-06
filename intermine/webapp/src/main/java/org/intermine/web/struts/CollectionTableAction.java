@@ -61,7 +61,7 @@ public class CollectionTableAction extends Action
         final InterMineAPI im = SessionMethods.getInterMineAPI(session);
         final ObjectStore os = im.getObjectStore();
         final WebConfig webConfig = SessionMethods.getWebConfig(request);
-        final Integer id = new Integer(request.getParameter("id"));
+        final Integer id = Integer.valueOf(request.getParameter("id"));
         final String field = request.getParameter("field");
 
         InterMineObject o = os.getObjectById(id);

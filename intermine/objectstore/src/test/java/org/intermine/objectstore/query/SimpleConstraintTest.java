@@ -32,8 +32,8 @@ public class SimpleConstraintTest extends TestCase {
     public void setUp() {
         qeStr1 = new QueryValue("String1");
         qeStr2 = new QueryValue("String2");
-        qeNum1 = new QueryValue(new Integer(124));
-        qeNum2 = new QueryValue(new Double(3.22));
+        qeNum1 = new QueryValue(Integer.valueOf(124));
+        qeNum2 = new QueryValue(Double.valueOf(3.22));
         qeBool1 = new QueryValue(new Boolean(true));
         qeDate1 = new QueryValue(new Date());
     }

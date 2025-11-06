@@ -269,19 +269,19 @@ public class Function extends AbstractValue
                     Map<AbstractValue, Integer> a = new HashMap<AbstractValue, Integer>();
                     for (AbstractValue operand : operands) {
                         if (!a.containsKey(operand)) {
-                            a.put(operand, new Integer(1));
+                            a.put(operand, Integer.valueOf(1));
                         } else {
                             Integer i = a.get(operand);
-                            a.put(operand, new Integer(1 + i.intValue()));
+                            a.put(operand, Integer.valueOf(1 + i.intValue()));
                         }
                     }
                     Map<AbstractValue, Integer> b = new HashMap<AbstractValue, Integer>();
                     for (AbstractValue operand : objF.operands) {
                         if (!b.containsKey(operand)) {
-                            b.put(operand, new Integer(1));
+                            b.put(operand, Integer.valueOf(1));
                         } else {
                             Integer i = b.get(operand);
-                            b.put(operand, new Integer(1 + i.intValue()));
+                            b.put(operand, Integer.valueOf(1 + i.intValue()));
                         }
                     }
                     return (a.equals(b));

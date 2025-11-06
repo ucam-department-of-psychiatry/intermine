@@ -204,24 +204,24 @@ public class DatabaseUtilTest extends TestCase
         }
 
         Collection bag = new HashSet();
-        bag.add(new Integer(-10000));
-        bag.add(new Integer(0));
-        bag.add(new Integer(10000));
-        bag.add(new Long(-10000));
-        bag.add(new Long(0));
-        bag.add(new Long(10000));
-        bag.add(new Short((short) -10000));
-        bag.add(new Short((short) 0));
-        bag.add(new Short((short) 10000));
+        bag.add(Integer.valueOf(-10000));
+        bag.add(Integer.valueOf(0));
+        bag.add(Integer.valueOf(10000));
+        bag.add(Long.valueOf(-10000));
+        bag.add(Long.valueOf(0));
+        bag.add(Long.valueOf(10000));
+        bag.add(Short.valueOf((short) -10000));
+        bag.add(Short.valueOf((short) 0));
+        bag.add(Short.valueOf((short) 10000));
         bag.add(new BigDecimal(-10000.0));
         bag.add(new BigDecimal(0.0));
         bag.add(new BigDecimal(10000.0));
-        bag.add(new Float(-10000.0));
-        bag.add(new Float(0.0));
-        bag.add(new Float(10000.0));
-        bag.add(new Double(-10000.0));
-        bag.add(new Double(0.0));
-        bag.add(new Double(10000.0));
+        bag.add(Float.valueOf(-10000.0));
+        bag.add(Float.valueOf(0.0f));
+        bag.add(Float.valueOf(10000.0));
+        bag.add(Double.valueOf(-10000.0));
+        bag.add(Double.valueOf(0.0));
+        bag.add(Double.valueOf(10000.0));
         bag.add(new String());
         bag.add(new String("a String with spaces"));
         bag.add(new String("123456"));
@@ -231,13 +231,13 @@ public class DatabaseUtilTest extends TestCase
         bag.add(new Date(999999));
         bag.add(new Date(100));
         Employee employee = (Employee) DynamicUtil.createObject(Collections.singleton(Employee.class));
-        employee.setId(new Integer(5000));
+        employee.setId(Integer.valueOf(5000));
         bag.add(employee);
         Manager manager = (Manager) DynamicUtil.createObject(Collections.singleton(Manager.class));
-        manager.setId(new Integer(5001));
+        manager.setId(Integer.valueOf(5001));
         bag.add(manager);
         Company company = (Company) DynamicUtil.createObject(Collections.singleton(Company.class));
-        company.setId(new Integer(6000));
+        company.setId(Integer.valueOf(6000));
         bag.add(company);
 
         // this shouldn't appear in any table
@@ -264,9 +264,9 @@ public class DatabaseUtilTest extends TestCase
         }
 
         Set expected = new HashSet();
-        expected.add(new Integer(-10000));
-        expected.add(new Integer(0));
-        expected.add(new Integer(10000));
+        expected.add(Integer.valueOf(-10000));
+        expected.add(Integer.valueOf(0));
+        expected.add(Integer.valueOf(10000));
 
         assertEquals(expected, result);
 
@@ -277,9 +277,9 @@ public class DatabaseUtilTest extends TestCase
         }
 
         expected = new HashSet();
-        expected.add(new Long(-10000));
-        expected.add(new Long(0));
-        expected.add(new Long(10000));
+        expected.add(Long.valueOf(-10000));
+        expected.add(Long.valueOf(0));
+        expected.add(Long.valueOf(10000));
 
         assertEquals(expected, result);
 
@@ -290,9 +290,9 @@ public class DatabaseUtilTest extends TestCase
         }
 
         expected = new HashSet();
-        expected.add(new Integer((short) -10000));
-        expected.add(new Integer((short) 0));
-        expected.add(new Integer((short) 10000));
+        expected.add(Integer.valueOf((short) -10000));
+        expected.add(Integer.valueOf((short) 0));
+        expected.add(Integer.valueOf((short) 10000));
 
         assertEquals(expected, result);
 
@@ -303,9 +303,9 @@ public class DatabaseUtilTest extends TestCase
         }
 
         expected = new HashSet();
-        expected.add(new Double(-10000.0));
-        expected.add(new Double(0.));
-        expected.add(new Double(10000.0));
+        expected.add(Double.valueOf(-10000.0));
+        expected.add(Double.valueOf(0.));
+        expected.add(Double.valueOf(10000.0));
 
         assertEquals(expected, result);
 
@@ -316,9 +316,9 @@ public class DatabaseUtilTest extends TestCase
         }
 
         expected = new HashSet();
-        expected.add(new Float(-10000.0));
-        expected.add(new Float(0.));
-        expected.add(new Float(10000.0));
+        expected.add(Float.valueOf(-10000.0));
+        expected.add(Float.valueOf(0.));
+        expected.add(Float.valueOf(10000.0));
 
         assertEquals(expected, result);
 
@@ -355,8 +355,8 @@ public class DatabaseUtilTest extends TestCase
         }
 
         expected = new HashSet();
-        expected.add(new Long(999999));
-        expected.add(new Long(100));
+        expected.add(Long.valueOf(999999));
+        expected.add(Long.valueOf(100));
 
         assertEquals(expected, result);
 

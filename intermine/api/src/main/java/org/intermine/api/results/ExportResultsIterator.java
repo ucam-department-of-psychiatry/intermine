@@ -255,7 +255,7 @@ public class ExportResultsIterator implements Iterator<List<ResultElement>>
                             .getDefaultClass();
                     }
                     if (qs.equals(selectableForPath)) {
-                        fieldToColumnNumber.put(path, new Integer(columnNo));
+                        fieldToColumnNumber.put(path, Integer.valueOf(columnNo));
                     }
                     columnNo++;
                 }

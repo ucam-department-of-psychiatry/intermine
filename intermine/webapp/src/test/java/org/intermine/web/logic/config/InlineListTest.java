@@ -31,15 +31,15 @@ public class InlineListTest extends TestCase
 
         // InterMine Objects
         company1 = (Company) DynamicUtil.createObject(Collections.singleton(Company.class));
-        company1.setId(new Integer(1));
+        company1.setId(Integer.valueOf(1));
         company1.setName("Weyland Yutani");
 
         company2 = (Company) DynamicUtil.createObject(Collections.singleton(Company.class));
-        company2.setId(new Integer(2));
+        company2.setId(Integer.valueOf(2));
         company2.setName("Initech");
 
         company3 = (Company) DynamicUtil.createObject(Collections.singleton(Company.class));
-        company3.setId(new Integer(3));
+        company3.setId(Integer.valueOf(3));
         company3.setName("Umbrella Corp.");
     }
 

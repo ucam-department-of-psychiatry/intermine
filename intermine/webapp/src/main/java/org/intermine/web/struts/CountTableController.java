@@ -51,7 +51,7 @@ public class CountTableController extends TilesAction
             = new PageTableQueryMonitor(Constants.QUERY_TIMEOUT_SECONDS * 1000, pt);
         String qid = SessionMethods.startPagedTableCount(clientState, session, messages);
         request.setAttribute("qid", qid);
-        request.setAttribute("POLL_REFRESH_SECONDS", new Integer(Constants.POLL_REFRESH_SECONDS));
+        request.setAttribute("POLL_REFRESH_SECONDS", Integer.valueOf(Constants.POLL_REFRESH_SECONDS));
         return null;
     }
 }

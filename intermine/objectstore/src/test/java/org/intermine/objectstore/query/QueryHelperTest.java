@@ -83,7 +83,7 @@ public class QueryHelperTest extends TestCase
                                  ConstraintOp.EQUALS, new QueryValue("Bob"));
         SimpleConstraint sc2 =
             new SimpleConstraint(new QueryField(qc, "age"),
-                                 ConstraintOp.EQUALS, new QueryValue(new Integer(54)));
+                                 ConstraintOp.EQUALS, new QueryValue(Integer.valueOf(54)));
         ConstraintSet cs2 = new ConstraintSet(ConstraintOp.AND);
         cs2.addConstraint(sc2);
 
@@ -107,7 +107,7 @@ public class QueryHelperTest extends TestCase
                                  ConstraintOp.EQUALS, new QueryValue("Bob"));
         SimpleConstraint sc2 =
             new SimpleConstraint(new QueryField(qc, "age"),
-                                 ConstraintOp.EQUALS, new QueryValue(new Integer(54)));
+                                 ConstraintOp.EQUALS, new QueryValue(Integer.valueOf(54)));
         ConstraintSet cs1 = new ConstraintSet(ConstraintOp.AND);
         cs1.addConstraint(sc1);
         ConstraintSet cs2 = new ConstraintSet(ConstraintOp.AND);
@@ -130,7 +130,7 @@ public class QueryHelperTest extends TestCase
                                  ConstraintOp.EQUALS, new QueryValue("Bob"));
         SimpleConstraint sc2 =
             new SimpleConstraint(new QueryField(qc, "age"),
-                                 ConstraintOp.EQUALS, new QueryValue(new Integer(54)));
+                                 ConstraintOp.EQUALS, new QueryValue(Integer.valueOf(54)));
         ConstraintSet cs1 = new ConstraintSet(ConstraintOp.OR);
         cs1.addConstraint(sc1);
         ConstraintSet cs2 = new ConstraintSet(ConstraintOp.AND);
@@ -153,7 +153,7 @@ public class QueryHelperTest extends TestCase
                                  ConstraintOp.EQUALS, new QueryValue("Bob"));
         SimpleConstraint sc2 =
             new SimpleConstraint(new QueryField(qc, "age"),
-                                 ConstraintOp.EQUALS, new QueryValue(new Integer(54)));
+                                 ConstraintOp.EQUALS, new QueryValue(Integer.valueOf(54)));
         ConstraintSet cs1 = new ConstraintSet(ConstraintOp.AND);
         cs1.addConstraint(sc1);
         ConstraintSet cs2 = new ConstraintSet(ConstraintOp.OR);

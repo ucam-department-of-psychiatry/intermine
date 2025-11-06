@@ -114,10 +114,10 @@ public abstract class DataConverter
     protected String newId(String className) {
         Integer id = ids.get(className);
         if (id == null) {
-            id = new Integer(0);
+            id = Integer.valueOf(0);
             ids.put(className, id);
         }
-        id = new Integer(id.intValue() + 1);
+        id = Integer.valueOf(id.intValue() + 1);
         ids.put(className, id);
         return id.toString();
     }

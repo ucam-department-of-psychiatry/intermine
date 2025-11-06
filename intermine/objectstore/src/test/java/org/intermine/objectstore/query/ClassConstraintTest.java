@@ -44,9 +44,9 @@ public class ClassConstraintTest extends TestCase {
         manager = new QueryClass(Manager.class);
         contractor = new QueryClass(Contractor.class);
         company1Object = (Company) DynamicUtil.createObject(Collections.singleton(Company.class));
-        company1Object.setId(new Integer(8762134));
+        company1Object.setId(Integer.valueOf(8762134));
         managerObject = new Manager();
-        managerObject.setId(new Integer(2687634));
+        managerObject.setId(Integer.valueOf(2687634));
     }
 
     public void testInvalidTypeQCQC() throws Exception{

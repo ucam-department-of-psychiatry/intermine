@@ -32,6 +32,6 @@ public class TruncatedObjectStoreWriterInterMineImplTest extends ObjectStoreWrit
 
         Assert.assertFalse(writer.isInTransaction());
         // Now try and do something normal.
-        writer.getObjectById(new Integer(2));
+        writer.getObjectById(Integer.valueOf(2));
     }
 }

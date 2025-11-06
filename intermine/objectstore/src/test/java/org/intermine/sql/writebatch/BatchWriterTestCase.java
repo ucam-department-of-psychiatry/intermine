@@ -60,20 +60,20 @@ public abstract class BatchWriterTestCase extends TestCase
             BatchWriter writer = getWriter();
             Batch batch = new Batch(writer);
             String colNames[] = new String[] {"col1", "col2"};
-            batch.addRow(con, "table1", new Integer(14), colNames, new Object[] {new Integer(14), new Integer(104)});
-            batch.addRow(con, "table1", new Integer(15), colNames, new Object[] {new Integer(15), new Integer(105)});
-            batch.addRow(con, "table1", new Integer(25), colNames, new Object[] {new Integer(25), new Integer(205)});
-            batch.addRow(con, "table1", new Integer(35), colNames, new Object[] {new Integer(35), new Integer(305)});
-            batch.deleteRow(con, "table1", "col1", new Integer(11));
-            batch.deleteRow(con, "table1", "col1", new Integer(12));
-            batch.deleteRow(con, "table1", "col1", new Integer(22));
-            batch.deleteRow(con, "table1", "col1", new Integer(32));
-            batch.deleteRow(con, "table1", "col1", new Integer(14));
-            batch.deleteRow(con, "table1", "col1", new Integer(24));
-            batch.deleteRow(con, "table1", "col1", new Integer(34));
-            batch.addRow(con, "table1", new Integer(12), colNames, new Object[] {new Integer(12), new Integer(112)});
-            batch.addRow(con, "table1", new Integer(22), colNames, new Object[] {new Integer(22), new Integer(212)});
-            batch.addRow(con, "table1", new Integer(32), colNames, new Object[] {new Integer(32), new Integer(312)});
+            batch.addRow(con, "table1", Integer.valueOf(14), colNames, new Object[] {new Integer(14), new Integer(104)});
+            batch.addRow(con, "table1", Integer.valueOf(15), colNames, new Object[] {new Integer(15), new Integer(105)});
+            batch.addRow(con, "table1", Integer.valueOf(25), colNames, new Object[] {new Integer(25), new Integer(205)});
+            batch.addRow(con, "table1", Integer.valueOf(35), colNames, new Object[] {new Integer(35), new Integer(305)});
+            batch.deleteRow(con, "table1", "col1", Integer.valueOf(11));
+            batch.deleteRow(con, "table1", "col1", Integer.valueOf(12));
+            batch.deleteRow(con, "table1", "col1", Integer.valueOf(22));
+            batch.deleteRow(con, "table1", "col1", Integer.valueOf(32));
+            batch.deleteRow(con, "table1", "col1", Integer.valueOf(14));
+            batch.deleteRow(con, "table1", "col1", Integer.valueOf(24));
+            batch.deleteRow(con, "table1", "col1", Integer.valueOf(34));
+            batch.addRow(con, "table1", Integer.valueOf(12), colNames, new Object[] {new Integer(12), new Integer(112)});
+            batch.addRow(con, "table1", Integer.valueOf(22), colNames, new Object[] {new Integer(22), new Integer(212)});
+            batch.addRow(con, "table1", Integer.valueOf(32), colNames, new Object[] {new Integer(32), new Integer(312)});
             batch.flush(con);
             con.commit();
             s = con.createStatement();
@@ -85,32 +85,32 @@ public abstract class BatchWriterTestCase extends TestCase
             }
 
             Map expected = new TreeMap();
-            expected.put(new Integer(12), new Integer(112));
-            expected.put(new Integer(22), new Integer(212));
-            expected.put(new Integer(32), new Integer(312));
-            expected.put(new Integer(13), new Integer(103));
-            expected.put(new Integer(23), new Integer(203));
-            expected.put(new Integer(33), new Integer(303));
-            expected.put(new Integer(15), new Integer(105));
-            expected.put(new Integer(25), new Integer(205));
-            expected.put(new Integer(35), new Integer(305));
+            expected.put(Integer.valueOf(12), new Integer(112));
+            expected.put(Integer.valueOf(22), new Integer(212));
+            expected.put(Integer.valueOf(32), new Integer(312));
+            expected.put(Integer.valueOf(13), new Integer(103));
+            expected.put(Integer.valueOf(23), new Integer(203));
+            expected.put(Integer.valueOf(33), new Integer(303));
+            expected.put(Integer.valueOf(15), new Integer(105));
+            expected.put(Integer.valueOf(25), new Integer(205));
+            expected.put(Integer.valueOf(35), new Integer(305));
             assertEquals(expected, got);
-            batch.addRow(con, "table1", new Integer(42), colNames, new Object[] {new Integer(42), new Integer(402)});
-            batch.addRow(con, "table1", new Integer(52), colNames, new Object[] {new Integer(52), new Integer(502)});
-            batch.addRow(con, "table1", new Integer(53), colNames, new Object[] {new Integer(53), new Integer(503)});
-            batch.addRow(con, "table1", new Integer(55), colNames, new Object[] {new Integer(55), new Integer(505)});
-            batch.deleteRow(con, "table1", "col1", new Integer(12));
-            batch.deleteRow(con, "table1", "col1", new Integer(13));
-            batch.deleteRow(con, "table1", "col1", new Integer(15));
-            batch.deleteRow(con, "table1", "col1", new Integer(22));
-            batch.deleteRow(con, "table1", "col1", new Integer(23));
-            batch.deleteRow(con, "table1", "col1", new Integer(25));
-            batch.deleteRow(con, "table1", "col1", new Integer(42));
-            batch.deleteRow(con, "table1", "col1", new Integer(43));
-            batch.deleteRow(con, "table1", "col1", new Integer(45));
-            batch.addRow(con, "table1", new Integer(22), colNames, new Object[] {new Integer(22), new Integer(222)});
-            batch.addRow(con, "table1", new Integer(23), colNames, new Object[] {new Integer(23), new Integer(223)});
-            batch.addRow(con, "table1", new Integer(25), colNames, new Object[] {new Integer(25), new Integer(225)});
+            batch.addRow(con, "table1", Integer.valueOf(42), colNames, new Object[] {new Integer(42), new Integer(402)});
+            batch.addRow(con, "table1", Integer.valueOf(52), colNames, new Object[] {new Integer(52), new Integer(502)});
+            batch.addRow(con, "table1", Integer.valueOf(53), colNames, new Object[] {new Integer(53), new Integer(503)});
+            batch.addRow(con, "table1", Integer.valueOf(55), colNames, new Object[] {new Integer(55), new Integer(505)});
+            batch.deleteRow(con, "table1", "col1", Integer.valueOf(12));
+            batch.deleteRow(con, "table1", "col1", Integer.valueOf(13));
+            batch.deleteRow(con, "table1", "col1", Integer.valueOf(15));
+            batch.deleteRow(con, "table1", "col1", Integer.valueOf(22));
+            batch.deleteRow(con, "table1", "col1", Integer.valueOf(23));
+            batch.deleteRow(con, "table1", "col1", Integer.valueOf(25));
+            batch.deleteRow(con, "table1", "col1", Integer.valueOf(42));
+            batch.deleteRow(con, "table1", "col1", Integer.valueOf(43));
+            batch.deleteRow(con, "table1", "col1", Integer.valueOf(45));
+            batch.addRow(con, "table1", Integer.valueOf(22), colNames, new Object[] {new Integer(22), new Integer(222)});
+            batch.addRow(con, "table1", Integer.valueOf(23), colNames, new Object[] {new Integer(23), new Integer(223)});
+            batch.addRow(con, "table1", Integer.valueOf(25), colNames, new Object[] {new Integer(25), new Integer(225)});
             batch.close(con);
             con.commit();
             s = con.createStatement();
@@ -122,15 +122,15 @@ public abstract class BatchWriterTestCase extends TestCase
             }
 
             expected = new TreeMap();
-            expected.put(new Integer(22), new Integer(222));
-            expected.put(new Integer(23), new Integer(223));
-            expected.put(new Integer(25), new Integer(225));
-            expected.put(new Integer(32), new Integer(312));
-            expected.put(new Integer(33), new Integer(303));
-            expected.put(new Integer(35), new Integer(305));
-            expected.put(new Integer(52), new Integer(502));
-            expected.put(new Integer(53), new Integer(503));
-            expected.put(new Integer(55), new Integer(505));
+            expected.put(Integer.valueOf(22), new Integer(222));
+            expected.put(Integer.valueOf(23), new Integer(223));
+            expected.put(Integer.valueOf(25), new Integer(225));
+            expected.put(Integer.valueOf(32), new Integer(312));
+            expected.put(Integer.valueOf(33), new Integer(303));
+            expected.put(Integer.valueOf(35), new Integer(305));
+            expected.put(Integer.valueOf(52), new Integer(502));
+            expected.put(Integer.valueOf(53), new Integer(503));
+            expected.put(Integer.valueOf(55), new Integer(505));
             assertEquals(expected, got);
             s = con.createStatement();
             r = s.executeQuery("SELECT col1, col2 FROM table1");
@@ -165,9 +165,9 @@ public abstract class BatchWriterTestCase extends TestCase
             BatchWriter writer = getWriter();
             Batch batch = new Batch(writer);
             String colNames[] = new String[] {"col1", "col2"};
-            batch.addRow(con, "table1", null, colNames, new Object[] {new Integer(2), new Integer(202)});
-            batch.addRow(con, "table1", null, colNames, new Object[] {new Integer(3), new Integer(203)});
-            batch.addRow(con, "table1", null, colNames, new Object[] {new Integer(4), new Integer(204)});
+            batch.addRow(con, "table1", null, colNames, new Object[] {Integer.valueOf(2), new Integer(202)});
+            batch.addRow(con, "table1", null, colNames, new Object[] {Integer.valueOf(3), new Integer(203)});
+            batch.addRow(con, "table1", null, colNames, new Object[] {Integer.valueOf(4), new Integer(204)});
             batch.close(con);
             con.commit();
             s = con.createStatement();
@@ -179,10 +179,10 @@ public abstract class BatchWriterTestCase extends TestCase
             }
 
             Map expected = new TreeMap();
-            expected.put(new Integer(1), new Integer(201));
-            expected.put(new Integer(2), new Integer(202));
-            expected.put(new Integer(3), new Integer(203));
-            expected.put(new Integer(4), new Integer(204));
+            expected.put(Integer.valueOf(1), new Integer(201));
+            expected.put(Integer.valueOf(2), new Integer(202));
+            expected.put(Integer.valueOf(3), new Integer(203));
+            expected.put(Integer.valueOf(4), new Integer(204));
             assertEquals(expected, got);
         } finally {
             if (con != null) {
@@ -211,8 +211,8 @@ public abstract class BatchWriterTestCase extends TestCase
 
             BatchWriter writer = getWriter();
             Batch batch = new Batch(writer);
-            batch.deleteRow(con, "table1", "col1", new Integer(2));
-            batch.deleteRow(con, "table1", "col1", new Integer(4));
+            batch.deleteRow(con, "table1", "col1", Integer.valueOf(2));
+            batch.deleteRow(con, "table1", "col1", Integer.valueOf(4));
             batch.close(con);
             con.commit();
             s = con.createStatement();
@@ -222,9 +222,9 @@ public abstract class BatchWriterTestCase extends TestCase
                 got.put(r.getObject(1), r.getObject(2));
             }
             Map expected = new TreeMap();
-            expected.put(new Integer(1), new Integer(201));
-            expected.put(new Integer(3), new Integer(203));
-            expected.put(new Integer(5), new Integer(205));
+            expected.put(Integer.valueOf(1), new Integer(201));
+            expected.put(Integer.valueOf(3), new Integer(203));
+            expected.put(Integer.valueOf(5), new Integer(205));
             assertEquals(expected, got);
         } finally {
             if (con != null) {
@@ -249,43 +249,43 @@ public abstract class BatchWriterTestCase extends TestCase
             BatchWriter writer = getWriter();
             Batch batch = new Batch(writer);
             String colNames[] = new String[] {"key", "int2", "int4", "int8", "float", "double", "bool", "bigdecimal", "string"};
-            batch.addRow(con, "table1", new Integer(1), colNames,
-                    new Object[] {new Integer(1),
-                        new Short((short) 45),
-                        new Integer(765234),
-                        new Long(86523876513242L),
-                        new Float(5.45),
-                        new Double(7632.234134),
+            batch.addRow(con, "table1", Integer.valueOf(1), colNames,
+                    new Object[] {Integer.valueOf(1),
+                        Short.valueOf((short) 45),
+                        Integer.valueOf(765234),
+                        Long.valueOf(86523876513242L),
+                        Float.valueOf(5.45),
+                        Double.valueOf(7632.234134),
                         Boolean.TRUE,
                         new BigDecimal("982413415465245.87639871238764321"),
                         "kjhlasdurhe"});
-            batch.addRow(con, "table1", new Integer(2), colNames,
-                    new Object[] {new Integer(2),
-                        new Short((short) 0),
-                        new Integer(0),
-                        new Long(0L),
-                        new Float(0.0),
-                        new Double(0.0),
+            batch.addRow(con, "table1", Integer.valueOf(2), colNames,
+                    new Object[] {Integer.valueOf(2),
+                        Short.valueOf((short) 0),
+                        Integer.valueOf(0),
+                        Long.valueOf(0L),
+                        Float.valueOf(0.0f),
+                        Double.valueOf(0.0),
                         Boolean.FALSE,
                         new BigDecimal("0.0"),
                         "turnip"});
-            batch.addRow(con, "table1", new Integer(3), colNames,
-                    new Object[] {new Integer(3),
-                        new Short((short) -1),
-                        new Integer(-12342),
-                        new Long(-12465432646L),
-                        new Float(-5.4),
-                        new Double(-234.342),
+            batch.addRow(con, "table1", Integer.valueOf(3), colNames,
+                    new Object[] {Integer.valueOf(3),
+                        Short.valueOf((short) -1),
+                        Integer.valueOf(-12342),
+                        Long.valueOf(-12465432646L),
+                        Float.valueOf(-5.4),
+                        Double.valueOf(-234.342),
                         Boolean.FALSE,
                         new BigDecimal("0"),
                         "blooglark"});
-            batch.addRow(con, "table1", new Integer(4), colNames,
-                    new Object[] {new Integer(4),
-                        new Short((short) -6),
-                        new Integer(-54321),
-                        new Long(-98765432198L),
-                        new Float(-5.4321),
-                        new Double(-543.21),
+            batch.addRow(con, "table1", Integer.valueOf(4), colNames,
+                    new Object[] {Integer.valueOf(4),
+                        Short.valueOf((short) -6),
+                        Integer.valueOf(-54321),
+                        Long.valueOf(-98765432198L),
+                        Float.valueOf(-5.4321),
+                        Double.valueOf(-543.21),
                         Boolean.TRUE,
                         new BigDecimal("0.000000"),
                         "wmd"});
@@ -299,7 +299,7 @@ public abstract class BatchWriterTestCase extends TestCase
 
             while (r.next()) {
                 for (int i = 1; i <= 8; i++) {
-                    Integer key = new Integer(r.getInt(1) * 10 + i);
+                    Integer key = Integer.valueOf(r.getInt(1) * 10 + i);
                     Object value = r.getObject(i + 1);
                     got.put(key, value);
                     message.append(key + "=(" + value.getClass().getName() + ", " + value + "), ");
@@ -307,38 +307,38 @@ public abstract class BatchWriterTestCase extends TestCase
             }
 
             Map expected = new TreeMap();
-            expected.put(new Integer(11), new Integer((short) 45));
-            expected.put(new Integer(12), new Integer(765234));
-            expected.put(new Integer(13), new Long(86523876513242L));
-            expected.put(new Integer(14), new Float(5.45));
-            expected.put(new Integer(15), new Double(7632.234134));
-            expected.put(new Integer(16), Boolean.TRUE);
-            expected.put(new Integer(17), new BigDecimal("982413415465245.87639871238764321"));
-            expected.put(new Integer(18), "kjhlasdurhe");
-            expected.put(new Integer(21), new Integer((short) 0));
-            expected.put(new Integer(22), new Integer(0));
-            expected.put(new Integer(23), new Long(0L));
-            expected.put(new Integer(24), new Float(0.0));
-            expected.put(new Integer(25), new Double(0.0));
-            expected.put(new Integer(26), Boolean.FALSE);
-            expected.put(new Integer(27), new BigDecimal("0.0"));
-            expected.put(new Integer(28), "turnip");
-            expected.put(new Integer(31), new Integer((short) -1));
-            expected.put(new Integer(32), new Integer(-12342));
-            expected.put(new Integer(33), new Long(-12465432646L));
-            expected.put(new Integer(34), new Float(-5.4));
-            expected.put(new Integer(35), new Double(-234.342));
-            expected.put(new Integer(36), Boolean.FALSE);
-            expected.put(new Integer(37), new BigDecimal("0"));
-            expected.put(new Integer(38), "blooglark");
-            expected.put(new Integer(41), new Integer((short) -6));
-            expected.put(new Integer(42), new Integer(-54321));
-            expected.put(new Integer(43), new Long(-98765432198L));
-            expected.put(new Integer(44), new Float(-5.4321));
-            expected.put(new Integer(45), new Double(-543.21));
-            expected.put(new Integer(46), Boolean.TRUE);
-            expected.put(new Integer(47), new BigDecimal("0.000000"));
-            expected.put(new Integer(48), "wmd");
+            expected.put(Integer.valueOf(11), new Integer((short) 45));
+            expected.put(Integer.valueOf(12), new Integer(765234));
+            expected.put(Integer.valueOf(13), Long.valueOf(86523876513242L));
+            expected.put(Integer.valueOf(14), Float.valueOf(5.45));
+            expected.put(Integer.valueOf(15), Double.valueOf(7632.234134));
+            expected.put(Integer.valueOf(16), Boolean.TRUE);
+            expected.put(Integer.valueOf(17), new BigDecimal("982413415465245.87639871238764321"));
+            expected.put(Integer.valueOf(18), "kjhlasdurhe");
+            expected.put(Integer.valueOf(21), new Integer((short) 0));
+            expected.put(Integer.valueOf(22), new Integer(0));
+            expected.put(Integer.valueOf(23), Long.valueOf(0L));
+            expected.put(Integer.valueOf(24), Float.valueOf(0.0f));
+            expected.put(Integer.valueOf(25), Double.valueOf(0.0));
+            expected.put(Integer.valueOf(26), Boolean.FALSE);
+            expected.put(Integer.valueOf(27), new BigDecimal("0.0"));
+            expected.put(Integer.valueOf(28), "turnip");
+            expected.put(Integer.valueOf(31), new Integer((short) -1));
+            expected.put(Integer.valueOf(32), new Integer(-12342));
+            expected.put(Integer.valueOf(33), Long.valueOf(-12465432646L));
+            expected.put(Integer.valueOf(34), Float.valueOf(-5.4));
+            expected.put(Integer.valueOf(35), Double.valueOf(-234.342));
+            expected.put(Integer.valueOf(36), Boolean.FALSE);
+            expected.put(Integer.valueOf(37), new BigDecimal("0"));
+            expected.put(Integer.valueOf(38), "blooglark");
+            expected.put(Integer.valueOf(41), new Integer((short) -6));
+            expected.put(Integer.valueOf(42), new Integer(-54321));
+            expected.put(Integer.valueOf(43), Long.valueOf(-98765432198L));
+            expected.put(Integer.valueOf(44), Float.valueOf(-5.4321));
+            expected.put(Integer.valueOf(45), Double.valueOf(-543.21));
+            expected.put(Integer.valueOf(46), Boolean.TRUE);
+            expected.put(Integer.valueOf(47), new BigDecimal("0.000000"));
+            expected.put(Integer.valueOf(48), "wmd");
             assertEquals(message.toString(), expected, got);
         } finally {
             if (con != null) {
@@ -371,7 +371,7 @@ public abstract class BatchWriterTestCase extends TestCase
             Batch batch = new Batch(writer);
             String[] colNames = new String[] {"key", "int4"};
             for (int i = 0; i < 100000; i++) {
-                batch.addRow(con, "table1", new Integer(i), colNames, new Object[] {new Integer(i), new Integer(765234 * i)});
+                batch.addRow(con, "table1", Integer.valueOf(i), colNames, new Object[] {new Integer(i), new Integer(765234 * i)});
                 if (i % 10000 == 9999) {
                     batch.flush(con);
                 }
@@ -388,7 +388,7 @@ public abstract class BatchWriterTestCase extends TestCase
             start = System.currentTimeMillis();
             for (int i = 0; i < 100000; i++) {
                 if (i % 5 != 0) {
-                    batch.deleteRow(con, "table1", "key", new Integer(i));
+                    batch.deleteRow(con, "table1", "key", Integer.valueOf(i));
                 }
                 //if (i % 10000 == 9999) {
                 //    batch.flush(con);
@@ -541,13 +541,13 @@ public abstract class BatchWriterTestCase extends TestCase
             Batch batch = new Batch(writer);
             String colNames[] = new String[]{"a", "b"};
             for (int i = 0; i < 10000; i++) {
-                batch.addRow(con, "table1", new Integer(i), colNames, new Object[]{new Integer(i), new Integer(i * 2876123)});
+                batch.addRow(con, "table1", Integer.valueOf(i), colNames, new Object[]{new Integer(i), new Integer(i * 2876123)});
             }
             batch.flush(con);
             con.commit();
             con.createStatement().execute("ANALYSE");
             for (int i = 0; i < 10000; i++) {
-                batch.deleteRow(con, "table1", "a", new Integer(i));
+                batch.deleteRow(con, "table1", "a", Integer.valueOf(i));
             }
             batch.flush(con);
             con.commit();
@@ -617,12 +617,12 @@ public abstract class BatchWriterTestCase extends TestCase
             BatchWriter writer = getWriter();
             Batch batch = new Batch(writer);
             String colNames[] = new String[] {"col1", "col2"};
-            batch.addRow(con, "table1", null, colNames, new Object[] {new Integer(2), new Integer(202)});
-            batch.addRow(con, "table1", null, colNames, new Object[] {new Integer(3), new Integer(203)});
-            batch.addRow(con, "table1", null, colNames, new Object[] {new Integer(4), new Integer(204)});
-            batch.addRow(con, "table2", null, colNames, new Object[] {new Integer(2), new Integer(202)});
-            batch.addRow(con, "table2", null, colNames, new Object[] {new Integer(3), new Integer(203)});
-            batch.addRow(con, "table2", null, colNames, new Object[] {new Integer(4), new Integer(204)});
+            batch.addRow(con, "table1", null, colNames, new Object[] {Integer.valueOf(2), new Integer(202)});
+            batch.addRow(con, "table1", null, colNames, new Object[] {Integer.valueOf(3), new Integer(203)});
+            batch.addRow(con, "table1", null, colNames, new Object[] {Integer.valueOf(4), new Integer(204)});
+            batch.addRow(con, "table2", null, colNames, new Object[] {Integer.valueOf(2), new Integer(202)});
+            batch.addRow(con, "table2", null, colNames, new Object[] {Integer.valueOf(3), new Integer(203)});
+            batch.addRow(con, "table2", null, colNames, new Object[] {Integer.valueOf(4), new Integer(204)});
             batch.flush(con, Collections.singleton("table1"));
             con.commit();
 
@@ -635,7 +635,7 @@ public abstract class BatchWriterTestCase extends TestCase
             }
 
             Map expected = new TreeMap();
-            expected.put(new Integer(1), new Integer(201));
+            expected.put(Integer.valueOf(1), new Integer(201));
             assertEquals(expected, got);
             r = s.executeQuery("SELECT col1, col2 FROM table1");
             got = new TreeMap();
@@ -644,9 +644,9 @@ public abstract class BatchWriterTestCase extends TestCase
                 got.put(r.getObject(1), r.getObject(2));
             }
 
-            expected.put(new Integer(2), new Integer(202));
-            expected.put(new Integer(3), new Integer(203));
-            expected.put(new Integer(4), new Integer(204));
+            expected.put(Integer.valueOf(2), new Integer(202));
+            expected.put(Integer.valueOf(3), new Integer(203));
+            expected.put(Integer.valueOf(4), new Integer(204));
             assertEquals(expected, got);
             batch.close(con);
             r = s.executeQuery("SELECT col1, col2 FROM table2");
@@ -700,8 +700,8 @@ public abstract class BatchWriterTestCase extends TestCase
             Batch batch = new Batch(writer);
             String colNames[] = new String[] {"col1", "col2"};
             for (int i = 0; i < 2000; i++) { // Write ~2GB to table1. Hope it doesn't run out of memory due to forgetting to flush table1.
-                batch.addRow(con, "table1", null, colNames, new Object[] {new Integer(i), new String(longString)});
-                batch.addRow(con, "table2", null, colNames, new Object[] {new Integer(i), new String("Hello" + i)});
+                batch.addRow(con, "table1", null, colNames, new Object[] {Integer.valueOf(i), new String(longString)});
+                batch.addRow(con, "table2", null, colNames, new Object[] {Integer.valueOf(i), new String("Hello" + i)});
                 batch.flush(con, Collections.singleton("table2"));
             }
             con.commit();

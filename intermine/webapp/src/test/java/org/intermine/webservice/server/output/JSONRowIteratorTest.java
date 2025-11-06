@@ -82,113 +82,113 @@ public class JSONRowIteratorTest extends TestCase {
         os = new ObjectStoreDummyImpl();
 
         wernhamHogg = (Company) DynamicUtil.createObject(Collections.singleton(Company.class));
-        wernhamHogg.setId(new Integer(1));
+        wernhamHogg.setId(Integer.valueOf(1));
         wernhamHogg.setName("Wernham-Hogg");
         wernhamHogg.setVatNumber(101);
 
         jennifer = new CEO();
-        jennifer.setId(new Integer(2));
+        jennifer.setId(Integer.valueOf(2));
         jennifer.setName("Jennifer Taylor-Clarke");
         jennifer.setAge(42);
 
         david = new Manager();
-        david.setId(new Integer(3));
+        david.setId(Integer.valueOf(3));
         david.setName("David Brent");
         david.setAge(39);
 
         taffy = new Manager();
-        taffy.setId(new Integer(4));
+        taffy.setId(Integer.valueOf(4));
         taffy.setName("Glynn");
         taffy.setAge(38);
 
         tim = new Employee();
-        tim.setId(new Integer(5));
+        tim.setId(Integer.valueOf(5));
         tim.setName("Tim Canterbury");
         tim.setAge(30);
 
         gareth = new Employee();
-        gareth.setId(new Integer(6));
+        gareth.setId(Integer.valueOf(6));
         gareth.setName("Gareth Keenan");
         gareth.setAge(32);
 
         dawn = new Employee();
-        dawn.setId(new Integer(7));
+        dawn.setId(Integer.valueOf(7));
         dawn.setName("Dawn Tinsley");
         dawn.setAge(26);
 
         keith = new Employee();
-        keith.setId(new Integer(8));
+        keith.setId(Integer.valueOf(8));
         keith.setName("Keith Bishop");
         keith.setAge(41);
 
         lee = new Employee();
-        lee.setId(new Integer(9));
+        lee.setId(Integer.valueOf(9));
         lee.setName("Lee");
         lee.setAge(28);
 
         alex = new Employee();
-        alex.setId(new Integer(10));
+        alex.setId(Integer.valueOf(10));
         alex.setName("Alex");
         alex.setAge(24);
 
         sales = new Department();
-        sales.setId(new Integer(11));
+        sales.setId(Integer.valueOf(11));
         sales.setName("Sales");
 
         accounts = new Department();
-        accounts.setId(new Integer(12));
+        accounts.setId(Integer.valueOf(12));
         accounts.setName("Accounts");
 
         distribution = new Department();
-        distribution.setId(new Integer(13));
+        distribution.setId(Integer.valueOf(13));
         distribution.setName("Warehouse");
 
         reception = new Department();
-        reception.setId(new Integer(14));
+        reception.setId(Integer.valueOf(14));
         reception.setName("Reception");
 
         address = new Address();
-        address.setId(new Integer(15));
+        address.setId(Integer.valueOf(15));
         address.setAddress("42 Friendly St, Betjeman Trading Estate, Slough");
 
         rowan = new Contractor();
-        rowan.setId(new Integer(16));
+        rowan.setId(Integer.valueOf(16));
         rowan.setName("Rowan");
 
         ray = new Contractor();
-        ray.setId(new Integer(17));
+        ray.setId(Integer.valueOf(17));
         ray.setName("Ray");
 
         jude = new Contractor();
-        jude.setId(new Integer(18));
+        jude.setId(Integer.valueOf(18));
         jude.setName("Jude");
 
         swindon = new Department();
-        swindon.setId(new Integer(19));
+        swindon.setId(Integer.valueOf(19));
         swindon.setName("Swindon");
 
         neil = new Manager();
-        neil.setId(new Integer(20));
+        neil.setId(Integer.valueOf(20));
         neil.setName("Neil Godwin");
         neil.setAge(35);
 
         rachel = new Employee();
-        rachel.setId(new Integer(21));
+        rachel.setId(Integer.valueOf(21));
         rachel.setName("Rachel");
         rachel.setAge(34);
 
         trudy = new Employee();
-        trudy.setId(new Integer(22));
+        trudy.setId(Integer.valueOf(22));
         trudy.setName("Trudy");
         trudy.setAge(25);
 
         bms = (Company) DynamicUtil.createObject(Collections.singleton(Company.class));
-        bms.setId(new Integer(23));
+        bms.setId(Integer.valueOf(23));
         bms.setName("Business Management Seminars");
         bms.setVatNumber(102);
 
         address2 = new Address();
-        address2.setId(new Integer(24));
+        address2.setId(Integer.valueOf(24));
         address2.setAddress("19 West Oxford St, Reading");
 
         Properties webProperties = new Properties();

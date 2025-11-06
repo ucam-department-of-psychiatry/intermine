@@ -84,7 +84,7 @@ public class ImportQueriesAction extends InterMineAction
                 SessionMethods.saveQuery(session, queryName, query);
                 imported++;
             }
-            recordMessage(new ActionMessage("query.imported", new Integer(imported)), request);
+            recordMessage(new ActionMessage("query.imported", Integer.valueOf(imported)), request);
             if (!validNameQuery) {
                 recordError(new ActionMessage("query.imported.invalidname"), request);
             }

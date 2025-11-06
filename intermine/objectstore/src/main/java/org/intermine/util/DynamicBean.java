@@ -232,15 +232,15 @@ public class DynamicBean implements MethodInterceptor
                 if (Boolean.TYPE.equals(fieldType)) {
                     retval = Boolean.FALSE;
                 } else if (Short.TYPE.equals(fieldType)) {
-                    retval = new Short((short) 0);
+                    retval = Short.valueOf((short) 0);
                 } else if (Integer.TYPE.equals(fieldType)) {
-                    retval = new Integer(0);
+                    retval = Integer.valueOf(0);
                 } else if (Long.TYPE.equals(fieldType)) {
-                    retval = new Long(0);
+                    retval = Long.valueOf(0);
                 } else if (Float.TYPE.equals(fieldType)) {
-                    retval = new Float(0.0);
+                    retval = Float.valueOf(0.0f);
                 } else if (Double.TYPE.equals(fieldType)) {
-                    retval = new Double(0.0);
+                    retval = Double.valueOf(0.0);
                 }
                 map.put(fieldName, retval);
             }
@@ -269,15 +269,15 @@ public class DynamicBean implements MethodInterceptor
                 if (Boolean.TYPE.equals(fieldType)) {
                     retval = Boolean.FALSE;
                 } else if (Short.TYPE.equals(fieldType)) {
-                    retval = new Short((short) 0);
+                    retval = Short.valueOf((short) 0);
                 } else if (Integer.TYPE.equals(fieldType)) {
-                    retval = new Integer(0);
+                    retval = Integer.valueOf(0);
                 } else if (Long.TYPE.equals(fieldType)) {
-                    retval = new Long(0);
+                    retval = Long.valueOf(0);
                 } else if (Float.TYPE.equals(fieldType)) {
-                    retval = new Float(0.0);
+                    retval = Float.valueOf(0.0f);
                 } else if (Double.TYPE.equals(fieldType)) {
-                    retval = new Double(0.0);
+                    retval = Double.valueOf(0.0);
                 }
                 map.put(fieldName, retval);
             }

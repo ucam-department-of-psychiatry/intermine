@@ -90,10 +90,10 @@ public class ObjectStoreWriterDummyImpl implements ObjectStoreWriter
     }
 
     public Integer getSerial() throws ObjectStoreException {
-        while (storedObjects.containsKey(new Integer(idCounter))) {
+        while (storedObjects.containsKey(Integer.valueOf(idCounter))) {
             idCounter++;
         }
-        return new Integer(idCounter);
+        return Integer.valueOf(idCounter);
     }
 
     public boolean isInTransaction() throws ObjectStoreException {

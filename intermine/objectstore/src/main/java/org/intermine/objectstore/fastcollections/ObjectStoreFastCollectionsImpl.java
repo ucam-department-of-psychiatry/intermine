@@ -263,10 +263,10 @@ public class ObjectStoreFastCollectionsImpl extends ObjectStorePassthruImpl
                                     subQ.setConstraint(cs);
                                     cs.addConstraint(new SimpleConstraint(qfk,
                                                 ConstraintOp.GREATER_THAN_EQUALS,
-                                                new QueryValue(new Integer(lowestId))));
+                                                new QueryValue(Integer.valueOf(lowestId))));
                                     cs.addConstraint(new SimpleConstraint(qfk,
                                                 ConstraintOp.LESS_THAN_EQUALS,
-                                                new QueryValue(new Integer(highestId))));
+                                                new QueryValue(Integer.valueOf(highestId))));
                                 } else {
                                     QueryClass qc1 = new QueryClass(clazz);
                                     QueryClass qc2 = new QueryClass(coll
@@ -284,19 +284,19 @@ public class ObjectStoreFastCollectionsImpl extends ObjectStorePassthruImpl
                                     QueryField idField = new QueryField(qc1, "id");
                                     cs.addConstraint(new SimpleConstraint(idField,
                                                 ConstraintOp.GREATER_THAN_EQUALS,
-                                                new QueryValue(new Integer(lowestId))));
+                                                new QueryValue(Integer.valueOf(lowestId))));
                                     cs.addConstraint(new SimpleConstraint(idField,
                                                 ConstraintOp.LESS_THAN_EQUALS,
-                                                new QueryValue(new Integer(highestId))));
+                                                new QueryValue(Integer.valueOf(highestId))));
                                     if (coll.relationType() == FieldDescriptor.ONE_N_RELATION) {
                                         QueryForeignKey reverseIdField = new QueryForeignKey(qc2,
                                                 coll.getReverseReferenceFieldName());
                                         cs.addConstraint(new SimpleConstraint(reverseIdField,
                                                     ConstraintOp.GREATER_THAN_EQUALS,
-                                                    new QueryValue(new Integer(lowestId))));
+                                                    new QueryValue(Integer.valueOf(lowestId))));
                                         cs.addConstraint(new SimpleConstraint(reverseIdField,
                                                     ConstraintOp.LESS_THAN_EQUALS,
-                                                    new QueryValue(new Integer(highestId))));
+                                                    new QueryValue(Integer.valueOf(highestId))));
                                     }
                                 }
                                 Results l = new Results(subQ, os, sequence);

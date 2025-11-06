@@ -837,7 +837,7 @@ public class PagedTable
         final List<Integer> ret = new ArrayList<Integer>();
         for (int i = 0; i < getColumns().size(); i++) {
             if (getColumns().get(i) != null && getColumns().get(i).isVisible()) {
-                ret.add(new Integer(getColumns().get(i).getIndex()));
+                ret.add(Integer.valueOf(getColumns().get(i).getIndex()));
             }
         }
 

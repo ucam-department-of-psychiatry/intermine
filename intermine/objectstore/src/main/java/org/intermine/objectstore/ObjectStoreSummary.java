@@ -254,13 +254,13 @@ public class ObjectStoreSummary
         if (!classCountsMap.containsKey(cld.getName())) {
             int classCount = countClass(os, cld.getType());
             LOG.info("Adding class count: " + cld.getUnqualifiedName() + " = " + classCount);
-            classCountsMap.put(cld.getName(), new Integer(classCount));
+            classCountsMap.put(cld.getName(), Integer.valueOf(classCount));
 
             // if this class is empty all subclasses MUST be empty as well
             if (classCount == 0) {
                 for (ClassDescriptor subCld : model.getAllSubs(cld)) {
                     if (!classCountsMap.containsKey(subCld.getName())) {
-                        classCountsMap.put(subCld.getName(), new Integer(classCount));
+                        classCountsMap.put(subCld.getName(), Integer.valueOf(classCount));
                     }
                 }
             }
@@ -508,7 +508,7 @@ public class ObjectStoreSummary
 
         Query q2 = new Query();
         q2.setDistinct(false);
-        q2.addToSelect(new QueryValue(new Integer(1)));
+        q2.addToSelect(new QueryValue(Integer.valueOf(1)));
 
         ConstraintSet cs2 = new ConstraintSet(ConstraintOp.AND);
         cs2.addConstraint(new SubqueryExistsConstraint(ConstraintOp.EXISTS, q));

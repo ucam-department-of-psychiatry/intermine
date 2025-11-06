@@ -53,7 +53,7 @@ public class ObjectStoreTestUtils {
         Iterator iter = c.iterator();
         while (iter.hasNext()) {
             try {
-                DynamicUtil.setFieldValue(iter.next(), "id", new Integer(i++));
+                DynamicUtil.setFieldValue(iter.next(), "id", Integer.valueOf(i++));
             } catch (IllegalArgumentException e) {
             }
         }
@@ -101,7 +101,7 @@ public class ObjectStoreTestUtils {
         if (name != null) {
             return name.invoke(o, new Object[] {});
         } else if (o instanceof InterMineObject) {
-            return new Integer(o.hashCode());
+            return Integer.valueOf(o.hashCode());
         } else {
             return o;
         }

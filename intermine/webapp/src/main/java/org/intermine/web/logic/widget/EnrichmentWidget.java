@@ -225,7 +225,7 @@ public class EnrichmentWidget extends Widget
                 }
 
                 BigDecimal bd = pValues.get(id);
-                row.add(new Double(bd.doubleValue()).toString());
+                row.add(Double.valueOf(bd.doubleValue()).toString());
 
                 List<String> termIds = termsToIds.get(id);
                 StringBuffer sb = new StringBuffer();

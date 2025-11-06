@@ -81,7 +81,7 @@ public class ModifyDetails extends DispatchAction
         TemplateQuery populatedTemplate;
         try {
             if (idForLookup != null && idForLookup.length() != 0) {
-                Integer objectId = new Integer(idForLookup);
+                Integer objectId = Integer.valueOf(idForLookup);
                 ObjectStore os = im.getObjectStore();
                 InterMineObject object = os.getObjectById(objectId);
                 template = TemplateHelper.removeDirectAttributesFromView(template);
@@ -234,7 +234,7 @@ public class ModifyDetails extends DispatchAction
         ComponentContext cc = new ComponentContext();
 
         if ("object".equals(detailsType)) {
-            InterMineObject o = os.getObjectById(new Integer(id));
+            InterMineObject o = os.getObjectById(Integer.valueOf(id));
             ReportObjectFactory reportObjects = SessionMethods.getReportObjects(session);
             ReportObject obj = reportObjects.get(o);
             cc.putAttribute("reportObject", obj);
@@ -280,7 +280,7 @@ public class ModifyDetails extends DispatchAction
         ObjectStore os = im.getObjectStore();
 
         try {
-            InterMineObject o = os.getObjectById(new Integer(reportObjectID));
+            InterMineObject o = os.getObjectById(Integer.valueOf(reportObjectID));
 
             ReportObjectFactory reportObjects = SessionMethods.getReportObjects(session);
             ReportObject reportObject = reportObjects.get(o);
@@ -325,7 +325,7 @@ public class ModifyDetails extends DispatchAction
         ObjectStore os = SessionMethods.getInterMineAPI(session).getObjectStore();
         InterMineObject obj = null;
         try {
-            obj = os.getObjectById(new Integer(idString));
+            obj = os.getObjectById(Integer.valueOf(idString));
         } catch (ObjectStoreException e) {
             LOG.error("Exception while fetching object with id " + idString, e);
         }

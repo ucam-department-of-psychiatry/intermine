@@ -46,11 +46,11 @@ public class InlineResultsTableTest extends TestCase
 
         // InterMine Objects
         company = (Company) DynamicUtil.createObject(Collections.singleton(Company.class));
-        company.setId(new Integer(1));
+        company.setId(Integer.valueOf(1));
         company.setName("Weyland Yutani");
 
         ceo = (CEO) DynamicUtil.createObject(Collections.singleton(CEO.class));
-        ceo.setId(new Integer(2));
+        ceo.setId(Integer.valueOf(2));
         ceo.setName("Radek");
 
         ceo.setCompany(company);
@@ -105,9 +105,9 @@ public class InlineResultsTableTest extends TestCase
 
         // InlineResultsTable
         InlineResultsTable resultsTable = new InlineResultsTable(collection, model, webConfig,
-                null, new Integer(1), new Boolean(false), null);
+                null, Integer.valueOf(1), new Boolean(false), null);
 
-        assertEquals(new Integer(1), (Integer) resultsTable.getListOfTypes().size());
+        assertEquals(Integer.valueOf(1), (Integer) resultsTable.getListOfTypes().size());
         assertEquals(new Boolean(false), resultsTable.getHasMoreThanOneType());
         assertEquals(DynamicUtil.getSimpleClass(ceo), resultsTable.getListOfTypes().get(0));
     }
@@ -134,10 +134,10 @@ public class InlineResultsTableTest extends TestCase
 
         // InlineResultsTable
         InlineResultsTable resultsTable = new InlineResultsTable(collection, model, webConfig,
-                null, new Integer(2), new Boolean(false), typeClasses);
+                null, Integer.valueOf(2), new Boolean(false), typeClasses);
 
-        assertEquals(new Integer(2), (Integer) resultsTable.getListOfTypes().size());
-        assertEquals(new Integer(3), new Integer(resultsTable.getColumnsSize()));
+        assertEquals(Integer.valueOf(2), (Integer) resultsTable.getListOfTypes().size());
+        assertEquals(Integer.valueOf(3), new Integer(resultsTable.getColumnsSize()));
         assertEquals(new Boolean(true), resultsTable.getHasMoreThanOneType());
         assertEquals(
                 new ArrayList<Class<?>>(Arrays.asList(
@@ -176,8 +176,8 @@ public class InlineResultsTableTest extends TestCase
         InlineResultsTable resultsTable = new InlineResultsTable(collection, model, webConfig,
                 new HashMap<String, List<FieldDescriptor>>(), 2, false, typeClasses);
 
-        assertEquals(new Integer(3), new Integer(resultsTable.getTableFieldConfigs().size()));
-        assertEquals(new Integer(3), new Integer(resultsTable.getColumnsSize()));
+        assertEquals(Integer.valueOf(3), new Integer(resultsTable.getTableFieldConfigs().size()));
+        assertEquals(Integer.valueOf(3), new Integer(resultsTable.getColumnsSize()));
         assertEquals(new Boolean(true), resultsTable.getHasMoreThanOneType());
         assertEquals(listOfFC, resultsTable.getTableFieldConfigs());
     }
@@ -203,12 +203,12 @@ public class InlineResultsTableTest extends TestCase
 
         // InlineResultsTable
         InlineResultsTable resultsTable = new InlineResultsTable(collection, model, webConfig,
-                new HashMap<String, List<FieldDescriptor>>(), new Integer(2), new Boolean(false),
+                new HashMap<String, List<FieldDescriptor>>(), Integer.valueOf(2), new Boolean(false),
                 typeClasses);
 
         // List<InlineResultsTableRow>
         List<Object> rows = resultsTable.getResultElementRows();
-        assertEquals(new Integer(2), new Integer(rows.size()));
+        assertEquals(Integer.valueOf(2), new Integer(rows.size()));
         // traverse and create a map to match
         List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
         for (Object rowObject : rows) {

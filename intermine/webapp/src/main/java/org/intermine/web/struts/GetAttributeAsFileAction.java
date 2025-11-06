@@ -52,7 +52,7 @@ public class GetAttributeAsFileAction extends Action
         final InterMineAPI im = SessionMethods.getInterMineAPI(session);
         ObjectStore os = im.getObjectStore();
         WebConfig webConfig = SessionMethods.getWebConfig(request);
-        Integer objectId = new Integer(request.getParameter("object"));
+        Integer objectId = Integer.valueOf(request.getParameter("object"));
         String fieldName = request.getParameter("field");
         String fileType = request.getParameter("type");
         InterMineObject object = os.getObjectById(objectId);

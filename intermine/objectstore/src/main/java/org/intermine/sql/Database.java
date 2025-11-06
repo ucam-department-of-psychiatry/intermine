@@ -408,7 +408,7 @@ public class Database implements Shutdownable
         for (int i = 0; i < parts.length; i++) {
             String partToParse = parts[i];
             if (StringUtils.isNumeric(partToParse)) {
-                versionInts.add(new Integer(partToParse));
+                versionInts.add(Integer.valueOf(partToParse));
             } else {
                 // beta version, e.g. 9.4beta3
                 if (partToParse.contains("beta")) {
@@ -417,7 +417,7 @@ public class Database implements Shutdownable
                         String betaDigit = betaBits[0];
                         if (StringUtils.isNumeric(betaDigit)
                                 && StringUtils.isNotEmpty(betaDigit)) {
-                            versionInts.add(new Integer(betaDigit));
+                            versionInts.add(Integer.valueOf(betaDigit));
                         }
                     }
                 }

@@ -87,8 +87,8 @@ public class TemplatesImportAction extends InterMineAction
                 }
             }
 
-            recordMessage(new ActionMessage("importTemplates.done", new Integer(deleted),
-                        new Integer(imported), new Integer(renamed)), request);
+            recordMessage(new ActionMessage("importTemplates.done", Integer.valueOf(deleted),
+                        Integer.valueOf(imported), new Integer(renamed)), request);
             if (!validConstraints) {
                 recordError(new ActionMessage("importTemplates.error.noneditablelookup"), request);
             }

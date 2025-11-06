@@ -46,7 +46,7 @@ public class IntToIntMap
      * @param to any int - or -1 to effectively remove the mapping
      */
     public synchronized void put(int from, int to) {
-        Integer pageNo = new Integer(from & OUTER_MASK);
+        Integer pageNo = Integer.valueOf(from & OUTER_MASK);
         int[] page = pages.get(pageNo);
         if (page == null) {
             page = new int[PAGE_SIZE + 1];
@@ -78,7 +78,7 @@ public class IntToIntMap
      * @return an int - -1 if there is no mapping present that matches
      */
     public synchronized int get(int from) {
-        Integer pageNo = new Integer(from & OUTER_MASK);
+        Integer pageNo = Integer.valueOf(from & OUTER_MASK);
         int[] page = pages.get(pageNo);
         if (page == null) {
             return -1;
@@ -122,7 +122,7 @@ public class IntToIntMap
         if (to == -1) {
             return null;
         }
-        return new Integer(to);
+        return Integer.valueOf(to);
     }
 
     /**

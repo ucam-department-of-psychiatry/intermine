@@ -758,7 +758,7 @@ public class ObjectStoreInterMineImpl extends ObjectStoreAbstractImpl implements
                         retval = new Results(batch, optimise, explain, prefetch);
                     } else {
                         retval = super.execute(q, batchSize, optimise, explain, prefetch);
-                        batches.put(new Integer(batchSize), retval.getResultsBatches());
+                        batches.put(Integer.valueOf(batchSize), retval.getResultsBatches());
                     }
                     resultsCache.put(cacheKey, retval);
                 }

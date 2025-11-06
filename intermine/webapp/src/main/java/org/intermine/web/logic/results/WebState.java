@@ -101,7 +101,7 @@ public class WebState
         if (hintCounts.containsKey(hint)) {
             count = hintCounts.get(hint).intValue();
         }
-        hintCounts.put(hint, new Integer(count + 1));
+        hintCounts.put(hint, Integer.valueOf(count + 1));
     }
 
     /**

@@ -94,7 +94,7 @@ public class DelimitedFileConfiguration
                         throw new IllegalArgumentException(message);
                     }
 
-                    columnFieldDescriptorMap.put(new Integer(keyColumnNumber), columnFD);
+                    columnFieldDescriptorMap.put(Integer.valueOf(keyColumnNumber), columnFD);
                 } catch (NumberFormatException e) {
                     throw new IllegalArgumentException("column number (" + key + ") not parsable "
                                                        + "in property file for "
@@ -109,7 +109,7 @@ public class DelimitedFileConfiguration
 
         for (int columnNumber = 0; columnNumber < mapMax + 1; columnNumber++) {
             FieldDescriptor columnFD =
-                (FieldDescriptor) columnFieldDescriptorMap.get(new Integer(columnNumber));
+                (FieldDescriptor) columnFieldDescriptorMap.get(Integer.valueOf(columnNumber));
 
             columnFieldDescriptors.add(columnFD);
         }

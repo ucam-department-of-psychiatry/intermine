@@ -209,12 +209,12 @@ public final class StringUtil
             if (delimIndex == -1) {
                 break;
             }
-            l.add(new Integer(delimIndex));
+            l.add(Integer.valueOf(delimIndex));
             nextStartIndex = delimIndex + delim.length();
         }
 
         // add list sentinel to avoid the special case for the last token
-        l.add(new Integer(str.length()));
+        l.add(Integer.valueOf(str.length()));
 
         String [] returnArray = new String[l.size()];
 

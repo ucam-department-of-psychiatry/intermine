@@ -82,7 +82,7 @@ public class EquivalentObjectHints
             QueryClass qc = new QueryClass(InterMineObject.class);
             subQ.addFrom(qc);
             subQ.addToSelect(new QueryField(qc, "id"));
-            q.addToSelect(new QueryValue(new Integer(1)));
+            q.addToSelect(new QueryValue(Integer.valueOf(1)));
             q.setConstraint(new SubqueryExistsConstraint(ConstraintOp.EXISTS, subQ));
             List<?> results = os.execute(q, 0, 1, false, false, ObjectStore.SEQUENCE_IGNORE);
             if (results.isEmpty()) {
@@ -116,7 +116,7 @@ public class EquivalentObjectHints
                 QueryClass qc = new QueryClass(clazz);
                 subQ.addFrom(qc);
                 subQ.addToSelect(new QueryField(qc, "id"));
-                q.addToSelect(new QueryValue(new Integer(1)));
+                q.addToSelect(new QueryValue(Integer.valueOf(1)));
                 q.setConstraint(new SubqueryExistsConstraint(ConstraintOp.EXISTS, subQ));
                 List<?> results = os.execute(q, 0, 1, false, false, ObjectStore.SEQUENCE_IGNORE);
                 if (results.isEmpty()) {

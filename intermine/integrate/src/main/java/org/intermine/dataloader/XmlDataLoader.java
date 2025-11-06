@@ -73,7 +73,7 @@ public class XmlDataLoader extends DataLoader
                     LOG.info("InterMine Id " + ((InterMineObject) o).getId());
                     LOG.info("InterMine Id " + ((InterMineObject) o).toString());
                     InterMineObject io = (InterMineObject) o;
-                    io.setId(new Integer(idCounter++));
+                    io.setId(Integer.valueOf(idCounter++));
                 }
             }
 

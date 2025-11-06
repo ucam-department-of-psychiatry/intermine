@@ -44,8 +44,8 @@ public class SearchResultsTest extends InterMineAPITestCase {
 
     private Profile bobProfile, sallyProfile;
     private ProfileManager pm;
-    private final Integer bobId = new Integer(101);
-    private final Integer sallyId = new Integer(102);
+    private final Integer bobId = Integer.valueOf(101);
+    private final Integer sallyId = Integer.valueOf(102);
     private final String bobPass = "bob_pass";
     private final String sallyPass = "sally_pass";
     private Map<String, List<FieldDescriptor>>  classKeys;

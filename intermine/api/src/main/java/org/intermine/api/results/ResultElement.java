@@ -136,7 +136,7 @@ public class ResultElement implements Serializable, ResultCell
                 rando = "0" + rando;
             }
             int composite = Integer.parseInt(syssix + rando);
-            simpleCellId = new Integer(composite);
+            simpleCellId = Integer.valueOf(composite);
         }
     }
 

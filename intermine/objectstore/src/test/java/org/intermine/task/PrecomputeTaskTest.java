@@ -72,7 +72,7 @@ public class PrecomputeTaskTest extends QueryTestCase
 
         task.setObjectStoreAlias("os.unittest");
         task.setPrecomputePropertiesPath("testmodel_precompute.properties");
-        task.setMinRows(new Integer(1));
+        task.setMinRows(Integer.valueOf(1));
 
         Properties summaryProperties;
 

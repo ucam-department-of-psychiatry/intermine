@@ -93,7 +93,7 @@ public class AcceptanceTestTaskTest
 
         Assert.assertEquals(expSql, test.getSql());
         Assert.assertEquals(expNote, test.getNote());
-        Assert.assertEquals(new Integer(10), test.getMaxResults());
+        Assert.assertEquals(Integer.valueOf(10), test.getMaxResults());
     }
 
     @Test

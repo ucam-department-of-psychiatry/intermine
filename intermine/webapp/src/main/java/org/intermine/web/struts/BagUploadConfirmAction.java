@@ -77,12 +77,12 @@ public class BagUploadConfirmAction extends InterMineAction
                 continue;
             }
             int id = Integer.parseInt(idString);
-            contents.add(new Integer(id));
+            contents.add(Integer.valueOf(id));
         }
         for (int i = 0; i < confirmForm.getSelectedObjects().length; i++) {
             String idString = confirmForm.getSelectedObjects()[i];
             int id = Integer.parseInt(idString);
-            contents.add(new Integer(id));
+            contents.add(Integer.valueOf(id));
         }
 
         if (contents.size() == 0) {

@@ -119,14 +119,14 @@ public class InterMineBagHandlerTest
     private Company createCompanyWithId(String companyName) {
         Company company =
             (Company) DynamicUtil.createObject(Collections.singleton(Company.class));
-        company.setId(new Integer(idCounter++));
+        company.setId(Integer.valueOf(idCounter++));
         company.setName(companyName);
         return company;
     }
 
     private Address createAddressWithId(String streetAddress) {
         Address address =  (Address) DynamicUtil.createObject(Collections.singleton(Address.class));
-        address.setId(new Integer(idCounter++));
+        address.setId(Integer.valueOf(idCounter++));
         address.setAddress(streetAddress);
         return address;
     }

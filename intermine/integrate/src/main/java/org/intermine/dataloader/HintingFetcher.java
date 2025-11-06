@@ -120,15 +120,15 @@ public class HintingFetcher extends BaseEquivalentObjectFetcher
         Class<? extends InterMineObject> summaryName = obj.getClass();
         Integer soFarCallCount = summaryCallCounts.get(summaryName);
         if (soFarCallCount == null) {
-            soFarCallCount = new Integer(0);
-            summaryTimes.put(summaryName, new Long(0));
-            summaryCounts.put(summaryName, new Integer(0));
+            soFarCallCount = Integer.valueOf(0);
+            summaryTimes.put(summaryName, Long.valueOf(0));
+            summaryCounts.put(summaryName, Integer.valueOf(0));
             summaryCallCounts.put(summaryName, soFarCallCount);
         }
         long time = System.currentTimeMillis();
         if (hints.databaseEmpty()) {
             savedDatabaseEmpty++;
-            summaryCallCounts.put(summaryName, new Integer(soFarCallCount.intValue() + 1));
+            summaryCallCounts.put(summaryName, Integer.valueOf(soFarCallCount.intValue() + 1));
             if (savedDatabaseEmptyFetch == -1) {
                 savedDatabaseEmptyFetch = System.currentTimeMillis() - time;
             }
@@ -152,7 +152,7 @@ public class HintingFetcher extends BaseEquivalentObjectFetcher
                     boolean classNotExists = hints.classNotExists(cld.getType());
                     String className = Util.getFriendlyName(cld.getType());
                     if (!savedTimes.containsKey(className)) {
-                        savedTimes.put(className, new Long(System.currentTimeMillis() - time));
+                        savedTimes.put(className, Long.valueOf(System.currentTimeMillis() - time));
                     }
                     if (!classNotExists) {
                         allPkClassesEmpty = Boolean.FALSE;
@@ -162,7 +162,7 @@ public class HintingFetcher extends BaseEquivalentObjectFetcher
             allPkClassesEmptyForClass.put(obj.getClass(), allPkClassesEmpty);
         }
         if (allPkClassesEmpty.booleanValue()) {
-            summaryCallCounts.put(summaryName, new Integer(soFarCallCount.intValue() + 1));
+            summaryCallCounts.put(summaryName, Integer.valueOf(soFarCallCount.intValue() + 1));
             return Collections.emptySet();
         }
         return super.queryEquivalentObjects(obj, source);
@@ -201,11 +201,11 @@ public class HintingFetcher extends BaseEquivalentObjectFetcher
                 String summaryName = Util.getFriendlyName(cld.getType()) + "."
                     + fieldName;
                 if (!savedTimes.containsKey(summaryName)) {
-                    savedTimes.put(summaryName, new Long(System.currentTimeMillis() - time));
-                    savedCounts.put(summaryName, new Integer(0));
+                    savedTimes.put(summaryName, Long.valueOf(System.currentTimeMillis() - time));
+                    savedCounts.put(summaryName, Integer.valueOf(0));
                 }
                 if (pkQueryFruitless) {
-                    savedCounts.put(summaryName, new Integer(savedCounts.get(summaryName).intValue()
+                    savedCounts.put(summaryName, Integer.valueOf(savedCounts.get(summaryName).intValue()
                                 + 1));
                     return;
                 }
@@ -231,12 +231,12 @@ public class HintingFetcher extends BaseEquivalentObjectFetcher
                         String summaryName = Util.getFriendlyName(cld.getType()) + "."
                             + fieldName;
                         if (!savedTimes.containsKey(summaryName)) {
-                            savedTimes.put(summaryName, new Long(System.currentTimeMillis()
+                            savedTimes.put(summaryName, Long.valueOf(System.currentTimeMillis()
                                         - time));
-                            savedCounts.put(summaryName, new Integer(0));
+                            savedCounts.put(summaryName, Integer.valueOf(0));
                         }
                         if (pkQueryFruitless) {
-                            savedCounts.put(summaryName, new Integer(savedCounts.get(summaryName)
+                            savedCounts.put(summaryName, Integer.valueOf(savedCounts.get(summaryName)
                                         .intValue() + 1));
                             return;
                         }

@@ -38,7 +38,7 @@ public class StringConstructor implements CharSequence
      * @return this
      */
     public StringConstructor append(String string) {
-        strings.put(new Integer(length), string);
+        strings.put(Integer.valueOf(length), string);
         length += string.length();
         return this;
     }
@@ -133,10 +133,10 @@ public class StringConstructor implements CharSequence
     @Override
     public char charAt(int index) {
         // If we were using Java 1.6, I could do floorEntry(). Instead, I have to do:
-        String component = strings.get(new Integer(index));
+        String component = strings.get(Integer.valueOf(index));
         int componentIndex = index;
         if (component == null) {
-            Integer key = strings.headMap(new Integer(index)).lastKey();
+            Integer key = strings.headMap(Integer.valueOf(index)).lastKey();
             if (key != null) {
                 component = strings.get(key);
                 componentIndex = key.intValue();

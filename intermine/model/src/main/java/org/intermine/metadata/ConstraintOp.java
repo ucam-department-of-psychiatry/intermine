@@ -124,7 +124,7 @@ public final class ConstraintOp
      * @return the index
      */
     public Integer getIndex() {
-        return new Integer(values.indexOf(this));
+        return Integer.valueOf(values.indexOf(this));
     }
 
     /**

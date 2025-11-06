@@ -93,7 +93,7 @@ public class ParallelPrecomputer
         synchronized (threads) {
             for (int i = 1; i < threadCount; i++) {
                 Thread worker = new Thread(new Worker(threads, jobIter, i, exceptions));
-                threads.put(new Integer(i), "");
+                threads.put(Integer.valueOf(i), "");
                 worker.setName("PrecomputeTask extra thread " + i);
                 worker.start();
             }
@@ -103,7 +103,7 @@ public class ParallelPrecomputer
             while (jobIter.hasNext()) {
                 Job job = jobIter.next();
                 synchronized (threads) {
-                    threads.put(new Integer(0), job.getKey());
+                    threads.put(Integer.valueOf(0), job.getKey());
                     LOG.info("Threads doing: " + threads);
                 }
                 executeJob(job, 0);
@@ -118,7 +118,7 @@ public class ParallelPrecomputer
         }
         LOG.info("Thread 0 finished");
         synchronized (threads) {
-            threads.remove(new Integer(0));
+            threads.remove(Integer.valueOf(0));
             LOG.info("Threads doing: " + threads);
             while (threads.size() != 0) {
                 LOG.info(threads.size() + " threads left");
@@ -242,7 +242,7 @@ public class ParallelPrecomputer
                 while (jobIter.hasNext()) {
                     Job job = jobIter.next();
                     synchronized (threads) {
-                        threads.put(new Integer(threadNo), job.getKey());
+                        threads.put(Integer.valueOf(threadNo), job.getKey());
                         LOG.info("Threads doing: " + threads);
                     }
                     try {
@@ -257,7 +257,7 @@ public class ParallelPrecomputer
             } finally {
                 LOG.info("Thread " + threadNo + " finished");
                 synchronized (threads) {
-                    threads.remove(new Integer(threadNo));
+                    threads.remove(Integer.valueOf(threadNo));
                     LOG.info("Threads doing: " + threads);
                     threads.notify();
                 }

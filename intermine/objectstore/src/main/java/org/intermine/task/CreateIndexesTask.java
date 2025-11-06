@@ -229,7 +229,7 @@ public class CreateIndexesTask extends Task
             synchronized (threads) {
                 for (int i = 1; i <= extraThreads; i++) {
                     Thread worker = new Thread(new Worker(threads, cldsIter, existingIndexes, i));
-                    threads.add(new Integer(i));
+                    threads.add(Integer.valueOf(i));
                     worker.setName("CreateIndexesTask extra thread " + i);
                     worker.start();
                 }
@@ -336,7 +336,7 @@ public class CreateIndexesTask extends Task
                     } finally {
                         LOG.info("Thread " + threadNo + " finished");
                         synchronized (threads) {
-                            threads.remove(new Integer(threadNo));
+                            threads.remove(Integer.valueOf(threadNo));
                             threads.notify();
                         }
                     }

@@ -298,15 +298,15 @@ public class PortalQueryAction extends InterMineAction
             int bagListSize, String extId) {
         if (bagListSize == 0 && bagQueryResultSize == 1) {
             ActionMessage msg = new ActionMessage("results.lookup.noresults.one",
-                    new Integer(bagQueryResultSize), className);
+                    Integer.valueOf(bagQueryResultSize), className);
             actionMessages.add(Constants.PORTAL_MSG, msg);
         } else if (bagListSize == 0 && bagQueryResultSize > 1) {
             ActionMessage msg = new ActionMessage("results.lookup.noresults.many",
-                    new Integer(bagQueryResultSize), className);
+                    Integer.valueOf(bagQueryResultSize), className);
             actionMessages.add(Constants.PORTAL_MSG, msg);
         } else if (bagListSize > 0) {
             ActionMessage msg = new ActionMessage("results.lookup.matches.many",
-                    new Integer(bagListSize));
+                    Integer.valueOf(bagListSize));
             actionMessages.add(". " + Constants.PORTAL_MSG, msg);
         } else if (bagListSize == 0) {
             ActionMessage msg = new ActionMessage("portal.nomatches", extId);

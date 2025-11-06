@@ -49,7 +49,7 @@ public class IntPresentSet
         int bitNo = i & WORD_MASK;
         i /= WORD_SIZE;
         int wordNo = i & PAGE_MASK;
-        Integer pageNo = new Integer(i / PAGE_SIZE);
+        Integer pageNo = Integer.valueOf(i / PAGE_SIZE);
         int[] page = pages.get(pageNo);
         if (page == null) {
             page = new int[PAGE_SIZE + 1];
@@ -88,7 +88,7 @@ public class IntPresentSet
         int bitNo = i & WORD_MASK;
         i /= WORD_SIZE;
         int wordNo = i & PAGE_MASK;
-        Integer pageNo = new Integer(i / PAGE_SIZE);
+        Integer pageNo = Integer.valueOf(i / PAGE_SIZE);
         int[] page = pages.get(pageNo);
         if (page == null) {
             return false;

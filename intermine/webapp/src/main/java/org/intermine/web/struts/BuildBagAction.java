@@ -108,7 +108,7 @@ public class BuildBagAction extends InterMineAction
             // attach file name as the name of the bag
             String fileName = formFile.getFileName();
             // strip suffix
-            Integer lastPos = new Integer(fileName.lastIndexOf('.'));
+            Integer lastPos = Integer.valueOf(fileName.lastIndexOf('.'));
             if (lastPos.intValue() > 0) {
                 fileName = fileName.substring(0, lastPos.intValue());
             }
@@ -170,9 +170,9 @@ public class BuildBagAction extends InterMineAction
                     ActionMessage actionMessage = null;
                     if (profile == null || profile.getUsername() == null) {
                         actionMessage = new ActionMessage("bag.bigNotLoggedIn",
-                                                          new Integer(maxBagSize));
+                                                          Integer.valueOf(maxBagSize));
                     } else {
-                        actionMessage = new ActionMessage("bag.tooBig", new Integer(maxBagSize));
+                        actionMessage = new ActionMessage("bag.tooBig", Integer.valueOf(maxBagSize));
                     }
                     recordError(actionMessage, request);
                     return mapping.findForward("bags");

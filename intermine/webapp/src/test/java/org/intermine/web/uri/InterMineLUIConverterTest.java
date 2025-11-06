@@ -52,13 +52,13 @@ public class InterMineLUIConverterTest extends InterMineAPITestCase {
     }
 
     public void testGetLUIWithCorrectID() {
-        InterMineLUI lui = converter.getInterMineLUI(new Integer(9));
+        InterMineLUI lui = converter.getInterMineLUI(Integer.valueOf(9));
         assertEquals("Employee", lui.getClassName());
         assertEquals("EmployeeA2", lui.getIdentifier());
     }
 
     public void testGetLUIWithWrongID() {
-        InterMineLUI lui = converter.getInterMineLUI(new Integer(100));
+        InterMineLUI lui = converter.getInterMineLUI(Integer.valueOf(100));
         assertNull(lui);
     }
 

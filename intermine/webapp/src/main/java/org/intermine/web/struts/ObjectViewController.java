@@ -62,7 +62,7 @@ public class ObjectViewController extends TilesAction
         String fieldName = (String) context.getAttribute("fieldName");
         fieldName = fieldName.trim();
 
-        Integer id = new Integer(Integer.parseInt(idString));
+        Integer id = Integer.valueOf(Integer.parseInt(idString));
         InterMineObject object = os.getObjectById(id);
         if (object == null) {
             return null;

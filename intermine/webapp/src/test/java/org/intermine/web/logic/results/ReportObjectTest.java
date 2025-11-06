@@ -38,12 +38,12 @@ public class ReportObjectTest extends InterMineAPITestCase
 
         // InterMine Objects
         company = (Company) DynamicUtil.createObject(Collections.singleton(Company.class));
-        company.setId(new Integer(1));
+        company.setId(Integer.valueOf(1));
         company.setName("Weyland Yutani");
         company.setVatNumber(101);
 
         address = (Address) DynamicUtil.createObject(Collections.singleton(Address.class));
-        address.setId(new Integer(1));
+        address.setId(Integer.valueOf(1));
         address.setAddress("Space");
 
         company.setAddress(address);

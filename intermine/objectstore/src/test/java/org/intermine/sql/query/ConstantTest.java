@@ -33,7 +33,7 @@ public class ConstantTest extends TestCase
         c9 = new Constant("1089290109834.28728747598768542");
         c10 = new Constant("5.1");
         c11 = new Constant("5.1::REAL");
-        c12 = new Constant(new BigDecimal((new Float(5.1)).doubleValue()).toString());
+        c12 = new Constant(new BigDecimal((Float.valueOf(5.1)).doubleValue()).toString());
         c13 = new Constant("1.3432E-11");
     }
 

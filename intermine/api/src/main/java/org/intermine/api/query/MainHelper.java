@@ -1464,7 +1464,7 @@ public final class MainHelper
         QueryExpression upperBound = new QueryExpression(
                 new QueryCast(maxval, BigDecimal.class),
                 QueryExpression.MULTIPLY,
-                new QueryCast(new QueryValue(new Double(1.01)), BigDecimal.class));
+                new QueryCast(new QueryValue(Double.valueOf(1.01)), BigDecimal.class));
         QueryField noOfBuckets = new QueryField(statsq, bins);
 
         QueryFunction bucket = new WidthBucketFunction(val, minval, upperBound, noOfBuckets);

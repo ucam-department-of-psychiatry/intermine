@@ -95,7 +95,7 @@ public class ObjectStoreWriterInterMineImpl extends ObjectStoreInterMineImpl
     protected String connectionTakenBy = null;
     protected Set<Object> tablesAltered = new HashSet<Object>();
 
-    private Long cumulativeWait = new Long(0);    // just for diagnostic, can be removed
+    private Long cumulativeWait = Long.valueOf(0);    // just for diagnostic, can be removed
     private Integer getConnectionCalls = 0;       // as above
 
     // if the property is set to true (recommended for the webapp), getConncetion() will get a new
@@ -691,7 +691,7 @@ public class ObjectStoreWriterInterMineImpl extends ObjectStoreInterMineImpl
                                 value = TypeUtil.getFieldProxy(o, tableInfo.fieldNames[colNo]);
                             }
                             if (value instanceof Date) {
-                                value = new Long(((Date) value).getTime());
+                                value = Long.valueOf(((Date) value).getTime());
                             }
                             if (value instanceof ClobAccess) {
                                 value = ((ClobAccess) value).getDbDescription();
@@ -712,15 +712,15 @@ public class ObjectStoreWriterInterMineImpl extends ObjectStoreInterMineImpl
                                 if ("boolean".equals(fieldType)) {
                                     value = Boolean.FALSE;
                                 } else if ("short".equals(fieldType)) {
-                                    value = new Short((short) 0);
+                                    value = Short.valueOf((short) 0);
                                 } else if ("int".equals(fieldType)) {
-                                    value = new Integer(0);
+                                    value = Integer.valueOf(0);
                                 } else if ("long".equals(fieldType)) {
-                                    value = new Long(0L);
+                                    value = Long.valueOf(0L);
                                 } else if ("float".equals(fieldType)) {
-                                    value = new Float(0.0F);
+                                    value = Float.valueOf(0.0F);
                                 } else if ("double".equals(fieldType)) {
-                                    value = new Double(0.0);
+                                    value = Double.valueOf(0.0);
                                 }
                             }
                         }
@@ -1326,12 +1326,12 @@ public class ObjectStoreWriterInterMineImpl extends ObjectStoreInterMineImpl
         }
 
         try {
-            Integer clobId = new Integer(clob.getClobId());
+            Integer clobId = Integer.valueOf(clob.getClobId());
             batch.deleteRow(c, CLOB_TABLE_NAME, CLOBID_COLUMN, clobId);
             int length = text.length();
             for (int i = 0; i < length; i += CLOB_PAGE_SIZE) {
                 batch.addRow(c, CLOB_TABLE_NAME, clobId, CLOB_COLUMNS, new Object[] {clobId,
-                    new Integer(i / CLOB_PAGE_SIZE), text.substring(i, Math.min(i + CLOB_PAGE_SIZE,
+                    Integer.valueOf(i / CLOB_PAGE_SIZE), text.substring(i, Math.min(i + CLOB_PAGE_SIZE,
                             length))});
             }
             tablesAltered.add(clob);

@@ -217,6 +217,6 @@ public class DynamicUtilTest extends TestCase
     public void testGetNullPrimitives() throws Exception {
         Company c = (Company) DynamicUtil.createObject(Collections.singleton(Company.class));
         assertEquals(0, c.getVatNumber());
-        assertEquals(new Integer(0), c.getFieldValue("vatNumber"));
+        assertEquals(Integer.valueOf(0), c.getFieldValue("vatNumber"));
     }
 }

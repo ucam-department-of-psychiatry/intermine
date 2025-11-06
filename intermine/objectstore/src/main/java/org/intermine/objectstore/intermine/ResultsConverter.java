@@ -110,7 +110,7 @@ public final class ResultsConverter
                         Integer idField = null;
                         Object obj = null;
                         if (InterMineObject.class.isAssignableFrom(((QueryClass) node).getType())) {
-                            idField = new Integer(sqlResults.getInt(alias + "id"));
+                            idField = Integer.valueOf(sqlResults.getInt(alias + "id"));
                             obj = os.pilferObjectById(idField);
                         }
                         if (obj == null) {
@@ -188,7 +188,7 @@ public final class ResultsConverter
                             } else if (Short.class.equals(node.getType())
                                     && (currentColumn instanceof Integer)) {
                                 int i = ((Integer) currentColumn).intValue();
-                                currentColumn = new Short((short) i);
+                                currentColumn = Short.valueOf((short) i);
                             } else if (ClobAccess.class.equals(node.getType())) {
                                 currentColumn = ClobAccess.decodeDbDescription(os,
                                         (String) currentColumn);
@@ -314,7 +314,7 @@ public final class ResultsConverter
                     value = new Date(((Long) value).longValue());
                 } else if ((value instanceof Integer) && (Short.class.equals(expectedType)
                         || Short.TYPE.equals(expectedType))) {
-                    value = new Short((short) ((Integer) value).intValue());
+                    value = Short.valueOf((short) ((Integer) value).intValue());
                 }
                 try {
                     retval.setFieldValue(fieldName, value);

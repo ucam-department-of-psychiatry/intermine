@@ -115,7 +115,7 @@ public class WebSearchableListController extends TilesAction
         int limitInt = 0;
         if (limit != null) {
             try {
-                limitInt = new Integer(limit.trim()).intValue();
+                limitInt = Integer.valueOf(limit.trim()).intValue();
             } catch (NumberFormatException e) {
                 // ignore - don't shuffle
             }
@@ -135,7 +135,7 @@ public class WebSearchableListController extends TilesAction
 
         SearchResults.filterOutInvalidTemplates(filteredWebSearchables);
         for (String wsName: (Set<String>) filteredWebSearchables.keySet()) {
-            wsMapForJS.put(wsName, new Integer(1));
+            wsMapForJS.put(wsName, Integer.valueOf(1));
         }
 
         Profile profile = SessionMethods.getProfile(session);
@@ -363,7 +363,7 @@ public class WebSearchableListController extends TilesAction
         for (Object o : filteredWebSearchables.values()) {
             InterMineBag bag = (InterMineBag) o;
             ObjectStoreBag osb = bag.getOsb();
-            Integer i = new Integer(osb.getBagId());
+            Integer i = Integer.valueOf(osb.getBagId());
             // check that this is in our list
             if (!set.contains(i.toString())) {
                 clone.remove(bag.getName());

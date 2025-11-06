@@ -187,7 +187,7 @@ public class DataTracker
                             //            - beforeExecute) + " ms");
                             while (r.next()) {
                                 ObjectDescription objectDescription =
-                                    idsFetched.get(new Integer(r.getInt(1)));
+                                    idsFetched.get(Integer.valueOf(r.getInt(1)));
                                 highestVersionSeen = Math.max(highestVersionSeen, r.getInt(4));
                                 objectDescription.putClean(r.getString(2).intern(),
                                                            stringToSource(r.getString(3)));

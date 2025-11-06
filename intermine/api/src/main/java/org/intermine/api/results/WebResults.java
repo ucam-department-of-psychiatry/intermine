@@ -156,14 +156,14 @@ public class WebResults
                     || (queryNode instanceof QueryCollectionPathExpression)) {
                 int index = select.indexOf(queryNode);
                 if (index != -1) {
-                    returnMap.put(path, new Integer(index));
+                    returnMap.put(path, Integer.valueOf(index));
                 }
             } else if (queryNode instanceof QueryField) {
                 String parentPath = path.substring(0, path.lastIndexOf('.'));
                 queryNode = pathToQueryNode.get(parentPath);
                 int index = select.indexOf(queryNode);
                 if (index != -1) {
-                    returnMap.put(path, new Integer(index));
+                    returnMap.put(path, Integer.valueOf(index));
                 }
             } else {
                 throw new RuntimeException();

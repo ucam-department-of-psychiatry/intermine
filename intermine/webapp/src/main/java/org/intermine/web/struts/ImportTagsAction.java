@@ -76,7 +76,7 @@ public class ImportTagsAction extends InterMineAction
                 return mapping.findForward("importTag");
             }
         }
-        recordMessage(new ActionMessage("history.importedTags", new Integer(count)), request);
+        recordMessage(new ActionMessage("history.importedTags", Integer.valueOf(count)), request);
 
         // We can't know what the tags were, or indeed what exactly what
         // was tagged, and thus be more fine grained about

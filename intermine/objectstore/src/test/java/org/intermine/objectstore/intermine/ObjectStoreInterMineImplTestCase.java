@@ -299,11 +299,11 @@ public class ObjectStoreInterMineImplTestCase extends ObjectStoreAbstractImplTes
     public void testPrecomputeWithNullsInOrder() throws Exception {
         Types t1 = new Types();
         t1.setIntObjType(null);
-        t1.setLongObjType(new Long(234212354));
+        t1.setLongObjType(Long.valueOf(234212354));
         t1.setName("fred");
         storeDataWriter.store(t1);
         Types t2 = new Types();
-        t2.setIntObjType(new Integer(278652));
+        t2.setIntObjType(Integer.valueOf(278652));
         t2.setLongObjType(null);
         t2.setName("fred");
         storeDataWriter.store(t2);
@@ -320,7 +320,7 @@ public class ObjectStoreInterMineImplTestCase extends ObjectStoreAbstractImplTes
         ((ObjectStoreInterMineImpl) os).precompute(q, "test");
 
         Results r = os.execute(q, 1, true, true, true);
-        SqlGenerator.registerOffset(q, 1, ((ObjectStoreInterMineImpl) os).getSchema(), ((ObjectStoreInterMineImpl) os).db, new Integer(100000), new HashMap());
+        SqlGenerator.registerOffset(q, 1, ((ObjectStoreInterMineImpl) os).getSchema(), ((ObjectStoreInterMineImpl) os).db, Integer.valueOf(100000), new HashMap());
 
         ResultsRow row = (ResultsRow) r.get(1);
         InterMineObject o = (InterMineObject) row.get(2);
@@ -329,7 +329,7 @@ public class ObjectStoreInterMineImplTestCase extends ObjectStoreAbstractImplTes
         o = (InterMineObject) row.get(2);
         Assert.assertEquals("Expected " + t1.toString() + " but got " + o.toString(), t1.getId(), o.getId());
 
-        q.setConstraint(new SimpleConstraint(into, ConstraintOp.GREATER_THAN, new QueryValue(new Integer(100000))));
+        q.setConstraint(new SimpleConstraint(into, ConstraintOp.GREATER_THAN, new QueryValue(Integer.valueOf(100000))));
         q = QueryCloner.cloneQuery(q);
         r = os.execute(q, 10, true, true, true);
 
@@ -345,8 +345,8 @@ public class ObjectStoreInterMineImplTestCase extends ObjectStoreAbstractImplTes
     @Test
     public void testPrecomputeWithNegatives() throws Exception {
         Types t1 = new Types();
-        t1.setLongObjType(new Long(-765187651234L));
-        t1.setIntObjType(new Integer(278652));
+        t1.setLongObjType(Long.valueOf(-765187651234L));
+        t1.setIntObjType(Integer.valueOf(278652));
         t1.setName("Fred");
         storeDataWriter.store(t1);
 
@@ -362,7 +362,7 @@ public class ObjectStoreInterMineImplTestCase extends ObjectStoreAbstractImplTes
         ((ObjectStoreInterMineImpl) os).precompute(q, "test");
 
         Results r = os.execute(q, 1, true, true, true);
-        SqlGenerator.registerOffset(q, 1, ((ObjectStoreInterMineImpl) os).getSchema(), ((ObjectStoreInterMineImpl) os).db, new Integer(278651), new HashMap());
+        SqlGenerator.registerOffset(q, 1, ((ObjectStoreInterMineImpl) os).getSchema(), ((ObjectStoreInterMineImpl) os).db, Integer.valueOf(278651), new HashMap());
 
         ResultsRow row = (ResultsRow) r.get(1);
         InterMineObject o = (InterMineObject) row.get(2);
@@ -729,7 +729,7 @@ public class ObjectStoreInterMineImplTestCase extends ObjectStoreAbstractImplTes
         Query q = new Query();
         QueryClass qc = new QueryClass(Employee.class);
         QueryField qf = new QueryField(qc,"age");
-        SimpleConstraint sc = new SimpleConstraint(qf,ConstraintOp.GREATER_THAN,new QueryValue(new Integer(20)));
+        SimpleConstraint sc = new SimpleConstraint(qf,ConstraintOp.GREATER_THAN,new QueryValue(Integer.valueOf(20)));
         q.addToSelect(qc);
         q.addFrom(qc);
         q.setConstraint(sc);
@@ -737,7 +737,7 @@ public class ObjectStoreInterMineImplTestCase extends ObjectStoreAbstractImplTes
         ((ObjectStoreInterMineImpl)os).precompute(q, "template");
         Assert.assertTrue(((ObjectStoreInterMineImpl)os).isPrecomputed(q,"template"));
         ObjectStoreBag osb = storeDataWriter.createObjectStoreBag();
-        storeDataWriter.addToBag(osb, new Integer(5));
+        storeDataWriter.addToBag(osb, Integer.valueOf(5));
         Assert.assertTrue(((ObjectStoreInterMineImpl)os).isPrecomputed(q,"template"));
         storeDataWriter.store(data.get("EmployeeA1"));
         Assert.assertFalse(((ObjectStoreInterMineImpl)os).isPrecomputed(q,"template"));
@@ -748,12 +748,12 @@ public class ObjectStoreInterMineImplTestCase extends ObjectStoreAbstractImplTes
         System.out.println("Starting testObjectStoreBag");
         ObjectStoreBag osb = storeDataWriter.createObjectStoreBag();
         ArrayList<Integer> coll = new ArrayList<Integer>();
-        coll.add(new Integer(3));
+        coll.add(Integer.valueOf(3));
         coll.add(((Employee) data.get("EmployeeA1")).getId());
         coll.add(((Employee) data.get("EmployeeA2")).getId());
-        coll.add(new Integer(20));
-        coll.add(new Integer(23));
-        coll.add(new Integer(30));
+        coll.add(Integer.valueOf(20));
+        coll.add(Integer.valueOf(23));
+        coll.add(Integer.valueOf(30));
         storeDataWriter.beginTransaction();
         storeDataWriter.addAllToBag(osb, coll);
         Query q = new Query();
@@ -826,8 +826,8 @@ public class ObjectStoreInterMineImplTestCase extends ObjectStoreAbstractImplTes
         q.addToSelect(qc9);
         ConstraintSet cs = new ConstraintSet(ConstraintOp.AND);
         q.setConstraint(cs);
-        cs.addConstraint(new SimpleConstraint(new QueryField(qc1, "id"), ConstraintOp.EQUALS, new QueryValue(new Integer(1))));
-        cs.addConstraint(new SimpleConstraint(new QueryField(qc1, "id"), ConstraintOp.EQUALS, new QueryValue(new Integer(2))));
+        cs.addConstraint(new SimpleConstraint(new QueryField(qc1, "id"), ConstraintOp.EQUALS, new QueryValue(Integer.valueOf(1))));
+        cs.addConstraint(new SimpleConstraint(new QueryField(qc1, "id"), ConstraintOp.EQUALS, new QueryValue(Integer.valueOf(2))));
         cs.addConstraint(new ClassConstraint(qc1, ConstraintOp.EQUALS, qc2));
         cs.addConstraint(new ClassConstraint(qc1, ConstraintOp.EQUALS, qc3));
         cs.addConstraint(new ClassConstraint(qc1, ConstraintOp.EQUALS, qc4));
@@ -855,7 +855,7 @@ public class ObjectStoreInterMineImplTestCase extends ObjectStoreAbstractImplTes
         Results r1 = os.execute(q1);
         Results r2 = os.execute(q2);
         Results r3 = os.execute(q3);
-        storeDataWriter.addToBag(osb1, new Integer(1));
+        storeDataWriter.addToBag(osb1, Integer.valueOf(1));
         try {
             r1.iterator().hasNext();
             Assert.fail("Expected: ConcurrentModificationException");
@@ -867,7 +867,7 @@ public class ObjectStoreInterMineImplTestCase extends ObjectStoreAbstractImplTes
         r1 = new Results(q1, os, os.getSequence(os.getComponentsForQuery(q1)));
         r2 = new Results(q2, os, os.getSequence(os.getComponentsForQuery(q2)));
         r3 = new Results(q3, os, os.getSequence(os.getComponentsForQuery(q3)));
-        storeDataWriter.addToBag(osb2, new Integer(2));
+        storeDataWriter.addToBag(osb2, Integer.valueOf(2));
         r1.iterator().hasNext();
         try {
             r2.iterator().hasNext();

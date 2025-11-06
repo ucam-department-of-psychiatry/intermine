@@ -91,7 +91,7 @@ public class BagUploadConfirmIssueController extends TilesAction
                 }
                 List objectListForIdentifierList =
                     (List) identifierResultElementMap.get(identifier);
-                objectListForIdentifierList.add(new Integer(objectListIndex));
+                objectListForIdentifierList.add(Integer.valueOf(objectListIndex));
                 objectListIndex++;
             }
         }

@@ -25,7 +25,7 @@ public class ResultElementConverterTest extends TestCase
 {
 
     public void testConvert() {
-        Object o1 = new Integer(1);
+        Object o1 = Integer.valueOf(1);
         Object o2 = new Date();
         Object o3 = "test";
         ResultElement el1 = new ResultElement(o1);

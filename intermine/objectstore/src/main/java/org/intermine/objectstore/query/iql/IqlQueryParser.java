@@ -612,12 +612,12 @@ public final class IqlQueryParser
             if (IqlTokenTypes.QUESTION_MARK == sibling.getType()) {
                 @SuppressWarnings("unchecked") Collection<ObjectStoreBag> param =
                     (Collection) iterator.next();
-                return new ObjectStoreBagsForObject(new Integer(Integer.parseInt(value)), param);
+                return new ObjectStoreBagsForObject(Integer.valueOf(Integer.parseInt(value)), param);
             }
             throw new IllegalArgumentException("Unknown AST node: " + sibling.getText() + " ["
                     + sibling.getType() + "]");
         }
-        return new ObjectStoreBagsForObject(new Integer(Integer.parseInt(value)));
+        return new ObjectStoreBagsForObject(Integer.valueOf(Integer.parseInt(value)));
     }
 
     /**

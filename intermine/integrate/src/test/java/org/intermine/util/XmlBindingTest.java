@@ -53,7 +53,7 @@ public class XmlBindingTest extends XMLTestCase {
         int i=1;
         for (Object o : c) {
             if (o instanceof InterMineObject) {
-                ((InterMineObject) o).setId(new Integer(i++));
+                ((InterMineObject) o).setId(Integer.valueOf(i++));
             }
         }
     }

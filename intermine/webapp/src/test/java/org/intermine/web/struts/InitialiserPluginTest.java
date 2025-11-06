@@ -50,7 +50,7 @@ public class InitialiserPluginTest extends TestCase
     private ProfileManager pm;
     private ObjectStore os, userProfileOS;
     private ObjectStoreWriter userProfileOSW;
-    private Integer bobId = new Integer(101);
+    private Integer bobId = Integer.valueOf(101);
     private String bobPass = "bob_pass";
 
     public InitialiserPluginTest(String arg) {

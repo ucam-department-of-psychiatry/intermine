@@ -221,7 +221,7 @@ public class ObjectStoreDummyImpl extends ObjectStoreAbstractImpl
                 }
             } else {
                 // Either a function, expression or Field
-                obj = new Integer(1);
+                obj = Integer.valueOf(1);
             }
             row.add(obj);
         }

@@ -58,31 +58,31 @@ public class TabFormatterTest extends TestCase {
         attributes.put(TabFormatter.COLUMN_HEADERS, view);
 
         tim = new Employee();
-        tim.setId(new Integer(5));
+        tim.setId(Integer.valueOf(5));
         tim.setName("Tim Canterbury");
         tim.setAge(30);
         tim.setEnd("a");
 
         gareth = new Employee();
-        gareth.setId(new Integer(6));
+        gareth.setId(Integer.valueOf(6));
         gareth.setName("Gareth Keenan");
         gareth.setAge(32);
         gareth.setEnd("b");
 
         dawn = new Employee();
-        dawn.setId(new Integer(7));
+        dawn.setId(Integer.valueOf(7));
         dawn.setName("Dawn Tinsley");
         dawn.setAge(26);
         dawn.setEnd(null);
 
         keith = new Employee();
-        keith.setId(new Integer(8));
+        keith.setId(Integer.valueOf(8));
         keith.setName("Keith Bishop");
         keith.setAge(41);
         keith.setEnd("quote here -> \" <- there");
 
         lee = new Employee();
-        lee.setId(new Integer(9));
+        lee.setId(Integer.valueOf(9));
         lee.setName("Lee");
         lee.setAge(28);
         lee.setEnd("tab here -> \t <- there");

@@ -117,7 +117,7 @@ public class ResultsBatches
      * @param explain true if this method should explain each query first
      */
     public void prefetch(int batchNo, boolean optimise, boolean explain) {
-        if (!batches.containsKey(new Integer(batchNo))) {
+        if (!batches.containsKey(Integer.valueOf(batchNo))) {
             PrefetchManager.addRequest(this, batchNo, optimise, explain);
         }
     }
@@ -159,7 +159,7 @@ public class ResultsBatches
      */
     protected List<Object> getBatch(int batchNo, boolean optimise, boolean explain)
         throws ObjectStoreException {
-        List<Object> retval = batches.get(new Integer(batchNo));
+        List<Object> retval = batches.get(Integer.valueOf(batchNo));
         if (retval == null) {
             retval = PrefetchManager.doRequest(this, batchNo, optimise, explain);
         }
@@ -205,7 +205,7 @@ public class ResultsBatches
                     minSize = (minSize > size ? minSize : size);
                 }
 
-                Integer key = new Integer(batchNo);
+                Integer key = Integer.valueOf(batchNo);
                 batches.put(key, rows);
             }
         } catch (IndexOutOfBoundsException e) {
@@ -347,7 +347,7 @@ public class ResultsBatches
     public ResultsBatches makeWithDifferentBatchSize(int newBatchSize) {
         ResultsBatches retval = new ResultsBatches(query, os, sequence);
         retval.setBatchSize(newBatchSize);
-        List<Object> firstBatch = batches.get(new Integer(0));
+        List<Object> firstBatch = batches.get(Integer.valueOf(0));
         if ((firstBatch != null) && (isSingleBatch() || (firstBatch.size() >= newBatchSize))) {
             if (firstBatch.size() > newBatchSize) {
                 // Trim batch to size
@@ -357,7 +357,7 @@ public class ResultsBatches
                 }
                 firstBatch = newFirstBatch;
             }
-            retval.batches.put(new Integer(0), firstBatch);
+            retval.batches.put(Integer.valueOf(0), firstBatch);
             retval.minSize = minSize;
             retval.maxSize = maxSize;
             retval.initialised = true;

@@ -107,7 +107,7 @@ public class SubqueryConstraintTest extends TestCase {
 
     public void testQueryEvaluableTypes() throws Exception {
         // select a string in subquery, try to compare with a number
-        QueryValue qeNum = new QueryValue(new Float(2.1));
+        QueryValue qeNum = new QueryValue(Float.valueOf(2.1));
         QueryValue qeStr = new QueryValue("test");
         Query q1 = new Query();
         q1.addToSelect(qeStr);

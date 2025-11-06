@@ -90,10 +90,10 @@ public class ItemToObjectTranslator extends Translator
         QueryExpression qe1 = new QueryExpression(qf, QueryExpression.INDEX_OF,
                 new QueryValue("_"));
         QueryExpression qe2 = new QueryExpression(qe1, QueryExpression.SUBTRACT,
-                new QueryValue(new Integer(1)));
-        QueryExpression qe3 = new QueryExpression(qf, new QueryValue(new Integer(1)), qe2);
+                new QueryValue(Integer.valueOf(1)));
+        QueryExpression qe3 = new QueryExpression(qf, new QueryValue(Integer.valueOf(1)), qe2);
         QueryExpression qe4 = new QueryExpression(qe1, QueryExpression.ADD,
-                new QueryValue(new Integer(1)));
+                new QueryValue(Integer.valueOf(1)));
         QueryExpression qe5 = new QueryExpression(qf, QueryExpression.SUBSTRING, qe4);
         QueryCast qca = new QueryCast(qe5, Integer.class);
         QueryFunction qfu = new QueryFunction(qca, QueryFunction.MAX);
@@ -109,8 +109,8 @@ public class ItemToObjectTranslator extends Translator
                     (Collection) res;
                 for (ResultsRow<Object> row : tmpRes) {
                     String namespace = (String) row.get(0);
-                    idToNamespace.put(new Integer(offset), namespace);
-                    namespaceToId.put(namespace, new Integer(offset));
+                    idToNamespace.put(Integer.valueOf(offset), namespace);
+                    namespaceToId.put(namespace, Integer.valueOf(offset));
                     int highest = ((Integer) row.get(1)).intValue();
                     offset += highest + 1;
                 }
@@ -168,7 +168,7 @@ public class ItemToObjectTranslator extends Translator
             throw new RuntimeException("namespace \"" + namespace + "\" not found");
         }
         int base = objectId.intValue();
-        Integer retval = new Integer(base + Integer.parseInt(identifier.substring(index + 1)));
+        Integer retval = Integer.valueOf(base + Integer.parseInt(identifier.substring(index + 1)));
         return retval;
     }
 

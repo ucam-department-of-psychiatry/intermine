@@ -242,7 +242,7 @@ public class DirectDataLoader extends DataLoader
      */
     public <C extends InterMineObject> C createObject(Class<C> c) {
         C o = DynamicUtil.simpleCreateObject(c);
-        o.setId(new Integer(idCounter));
+        o.setId(Integer.valueOf(idCounter));
         idCounter++;
         return o;
     }

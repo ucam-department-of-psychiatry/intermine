@@ -82,7 +82,7 @@ public class BatchWriterSimpleImpl implements BatchWriter
                 }
                 table.clear();
                 if (activity > 0) {
-                    activityMap.put(name, new Integer(activity));
+                    activityMap.put(name, Integer.valueOf(activity));
                 }
             }
         }

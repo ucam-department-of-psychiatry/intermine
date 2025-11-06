@@ -58,7 +58,7 @@ public class CollectionDetailsAction extends Action
         final InterMineAPI im = SessionMethods.getInterMineAPI(session);
         ObjectStore os = im.getObjectStore();
 
-        Integer id = new Integer(request.getParameter("id"));
+        Integer id = Integer.valueOf(request.getParameter("id"));
         String field = request.getParameter("field");
         String trail = request.getParameter("trail");
 

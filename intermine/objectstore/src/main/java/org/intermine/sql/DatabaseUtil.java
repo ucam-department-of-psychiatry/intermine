@@ -913,7 +913,7 @@ public final class DatabaseUtil
                 if (o instanceof InterMineObject) {
                     o = ((InterMineObject) o).getId();
                 } else if (o instanceof Date) {
-                    o = new Long(((Date) o).getTime());
+                    o = Long.valueOf(((Date) o).getTime());
                 }
                 tableBatch.addRow(o, colNames, new Object[] {o});
             }

@@ -251,7 +251,7 @@ public final class SqlGenerator
                         cacheEntry.setLast(start, sql);
                     }
                     SortedMap<Integer, String> headMap = cacheEntry.getCached()
-                        .headMap(new Integer(start + 1));
+                        .headMap(Integer.valueOf(start + 1));
                     Integer lastKey = null;
                     try {
                         lastKey = headMap.lastKey();
@@ -273,7 +273,7 @@ public final class SqlGenerator
                     cacheEntry = new CacheEntry(start, sql);
                     schemaCache.put(q, cacheEntry);
                 }
-                cacheEntry.getCached().put(new Integer(start), sql);
+                cacheEntry.getCached().put(Integer.valueOf(start), sql);
                 //LOG.info("Created cache entry for offset " + start + " (cache contains "
                 //    + cacheEntry.getCached().keySet() + ") for query " + q + ", sql = " + sql);
             }
@@ -382,7 +382,7 @@ public final class SqlGenerator
             CacheEntry cacheEntry = schemaCache.get(q);
             if (cacheEntry != null) {
                 SortedMap<Integer, String> headMap = cacheEntry.getCached()
-                    .headMap(new Integer(start + 1));
+                    .headMap(Integer.valueOf(start + 1));
                 Integer lastKey = null;
                 try {
                     lastKey = headMap.lastKey();
@@ -409,7 +409,7 @@ public final class SqlGenerator
                 cached = new TreeMap();
                 schemaCache.put(q, cached);
             }
-            cached.put(new Integer(0), sql);
+            cached.put(Integer.valueOf(0), sql);
             */
             return sql + ((limit == Integer.MAX_VALUE ? "" : " LIMIT " + limit)
                         + (start == 0 ? "" : " OFFSET " + start));
@@ -742,16 +742,16 @@ public final class SqlGenerator
                 }
             } else if (selectable instanceof QueryCollectionPathExpression) {
                 Collection<ProxyReference> empty = Collections.singleton(new ProxyReference(null,
-                            new Integer(1), InterMineObject.class));
+                            Integer.valueOf(1), InterMineObject.class));
                 findTableNames(tablenames, ((QueryCollectionPathExpression) selectable)
                         .getQuery(empty), schema, addInterMineObject, individualOsbs);
             } else if (selectable instanceof QueryObjectPathExpression) {
-                Collection<Integer> empty = Collections.singleton(new Integer(1));
+                Collection<Integer> empty = Collections.singleton(Integer.valueOf(1));
                 findTableNames(tablenames, ((QueryObjectPathExpression) selectable)
                         .getQuery(empty, schema.isMissingNotXml()), schema,
                         addInterMineObject, individualOsbs);
             } else if (selectable instanceof PathExpressionField) {
-                Collection<Integer> empty = Collections.singleton(new Integer(1));
+                Collection<Integer> empty = Collections.singleton(Integer.valueOf(1));
                 findTableNames(tablenames, ((PathExpressionField) selectable).getQope()
                         .getQuery(empty, schema.isMissingNotXml()), schema,
                         addInterMineObject, individualOsbs);
@@ -2098,7 +2098,7 @@ public final class SqlGenerator
             }
             buffer.append(id.toString());
         } else if (value instanceof Date) {
-            buffer.append(DatabaseUtil.objectToString(new Long(((Date) value).getTime())));
+            buffer.append(DatabaseUtil.objectToString(Long.valueOf(((Date) value).getTime())));
         } else {
             buffer.append(DatabaseUtil.objectToString(value));
         }

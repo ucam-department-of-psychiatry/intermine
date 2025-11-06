@@ -108,12 +108,12 @@ public final class MappingUtil
         } else {
             T firstElement = firstList.get(firstIndex);
             for (int i = 0; i < secondList.size(); i++) {
-                if (!takenSeconds.contains(new Integer(i))) {
+                if (!takenSeconds.contains(Integer.valueOf(i))) {
                     T secondElement = secondList.get(i);
                     if (comparator.compare(firstElement, secondElement) == 0) {
                         Set<Integer> newTakenSeconds = new HashSet<Integer>(takenSeconds);
                         Map<T, T> newSoFar = new LinkedHashMap<T, T>(soFar);
-                        newTakenSeconds.add(new Integer(i));
+                        newTakenSeconds.add(Integer.valueOf(i));
                         newSoFar.put(firstElement, secondElement);
                         if (checker.check(newSoFar)) {
                             findCombinations(retval, firstList, secondList, comparator, checker,

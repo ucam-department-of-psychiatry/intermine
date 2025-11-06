@@ -29,8 +29,8 @@ public class ConstraintSetTest extends TestCase {
 
     public void setUp() throws Exception {
         sc1 = new SimpleConstraint(new QueryValue("test"), ConstraintOp.EQUALS, new QueryValue("test"));
-        Integer testInt1 = new Integer(5);
-        Integer testInt2 = new Integer(7);
+        Integer testInt1 = Integer.valueOf(5);
+        Integer testInt2 = Integer.valueOf(7);
         sc2 = new SimpleConstraint(new QueryValue(testInt1), ConstraintOp.LESS_THAN, new QueryValue(testInt2));
     }
 

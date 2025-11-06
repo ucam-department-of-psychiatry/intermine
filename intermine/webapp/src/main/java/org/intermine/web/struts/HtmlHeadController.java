@@ -123,7 +123,7 @@ public class HtmlHeadController extends TilesAction
             }
             Integer id = null;
             try {
-                id = new Integer(Integer.parseInt(objectId));
+                id = Integer.valueOf(Integer.parseInt(objectId));
 
                 InterMineObject object = os.getObjectById(id);
                 if (object == null) {

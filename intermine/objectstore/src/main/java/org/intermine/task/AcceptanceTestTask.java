@@ -483,7 +483,7 @@ class AcceptanceTest
         this.note = note;
 
         if (maxResults == null) {
-            this.maxResults = new Integer(DEFAULT_MAX_RESULTS);
+            this.maxResults = Integer.valueOf(DEFAULT_MAX_RESULTS);
         } else {
             this.maxResults = maxResults;
         }

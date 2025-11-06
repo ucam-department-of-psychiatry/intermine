@@ -199,7 +199,7 @@ public class BagDetailsController extends TilesAction
         String highlightIdStr = request.getParameter("highlightId");
         Integer highlightId = null;
         if (highlightIdStr != null) {
-            highlightId = new Integer(Integer.parseInt(highlightIdStr));
+            highlightId = Integer.valueOf(Integer.parseInt(highlightIdStr));
         }
         boolean gotoHighlighted = false;
         String gotoHighlightedStr = request.getParameter("gotoHighlighted");
@@ -257,7 +257,7 @@ public class BagDetailsController extends TilesAction
         request.setAttribute("addparameter", request.getParameter("addparameter"));
         request.setAttribute("myBag", myBag);
         request.setAttribute("bag", imBag);
-        request.setAttribute("bagSize", new Integer(imBag.size()));
+        request.setAttribute("bagSize", Integer.valueOf(imBag.size()));
         request.setAttribute("pagedResults", pagedResults);
         request.setAttribute("highlightId", highlightIdStr);
         // disable using pathquery saved in session in following jsp page

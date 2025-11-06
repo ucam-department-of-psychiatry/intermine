@@ -185,9 +185,9 @@ public class BaseEquivalentObjectFetcher implements EquivalentObjectFetcher
         Integer soFarCount = summaryCounts.get(summaryName);
         Integer soFarCallCount = summaryCallCounts.get(summaryName);
         if (soFar == null) {
-            soFar = new Long(0L);
-            soFarCount = new Integer(0);
-            soFarCallCount = new Integer(0);
+            soFar = Long.valueOf(0L);
+            soFarCount = Integer.valueOf(0);
+            soFarCallCount = Integer.valueOf(0);
             summaryTimes.put(summaryName, soFar);
             summaryCounts.put(summaryName, soFarCount);
             summaryCallCounts.put(summaryName, soFarCallCount);
@@ -207,14 +207,14 @@ public class BaseEquivalentObjectFetcher implements EquivalentObjectFetcher
                 // Ignore - operation will be repeated later
             }
             long time = System.currentTimeMillis() - before;
-            summaryTimes.put(summaryName, new Long(time + soFar.longValue()));
-            summaryCounts.put(summaryName, new Integer(soFarCount.intValue() + 1));
-            summaryCallCounts.put(summaryName, new Integer(soFarCallCount.intValue() + 1));
+            summaryTimes.put(summaryName, Long.valueOf(time + soFar.longValue()));
+            summaryCounts.put(summaryName, Integer.valueOf(soFarCount.intValue() + 1));
+            summaryCallCounts.put(summaryName, Integer.valueOf(soFarCallCount.intValue() + 1));
             @SuppressWarnings("unchecked")
             Set<InterMineObject> retval = new HashSet(result);
             return retval;
         } else {
-            summaryCallCounts.put(summaryName, new Integer(soFarCallCount.intValue() + 1));
+            summaryCallCounts.put(summaryName, Integer.valueOf(soFarCallCount.intValue() + 1));
             return Collections.emptySet();
         }
     }

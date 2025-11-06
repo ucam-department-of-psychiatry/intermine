@@ -60,30 +60,30 @@ public class ExportResultsIteratorTest extends TestCase
         Company company1 = (Company) DynamicUtil.createObject(Collections.singleton(Company.class));
         company1.setName("Company1");
         company1.setVatNumber(101);
-        company1.setId(new Integer(1));
+        company1.setId(Integer.valueOf(1));
 
         Department department1 = new Department();
         department1.setName("Department1");
-        department1.setId(new Integer(2));
+        department1.setId(Integer.valueOf(2));
         Department department2 = new Department();
         department2.setName("Department2");
-        department2.setId(new Integer(3));
+        department2.setId(Integer.valueOf(3));
 
         Employee employee1 = new Employee();
         employee1.setName("Employee1");
-        employee1.setId(new Integer(4));
+        employee1.setId(Integer.valueOf(4));
         employee1.setAge(42);
         Employee employee2 = new Employee();
         employee2.setName("Employee2");
-        employee2.setId(new Integer(5));
+        employee2.setId(Integer.valueOf(5));
         employee2.setAge(43);
         Employee employee3 = new Employee();
         employee3.setName("Employee3");
-        employee3.setId(new Integer(6));
+        employee3.setId(Integer.valueOf(6));
         employee3.setAge(44);
         Employee employee4 = new Employee();
         employee4.setName("Employee4");
-        employee4.setId(new Integer(7));
+        employee4.setId(Integer.valueOf(7));
         employee4.setAge(45);
 
         ResultsRow row = new ResultsRow();
@@ -174,24 +174,24 @@ public class ExportResultsIteratorTest extends TestCase
         Company company1 = (Company) DynamicUtil.createObject(Collections.singleton(Company.class));
         company1.setName("Company1");
         company1.setVatNumber(101);
-        company1.setId(new Integer(1));
+        company1.setId(Integer.valueOf(1));
 
         Department department1 = new Department();
         department1.setName("Department1");
-        department1.setId(new Integer(2));
+        department1.setId(Integer.valueOf(2));
         Department department2 = new Department();
         department2.setName("Department2");
-        department2.setId(new Integer(3));
+        department2.setId(Integer.valueOf(3));
 
         Contractor contractor1 = new Contractor();
         contractor1.setName("Contractor1");
-        contractor1.setId(new Integer(4));
+        contractor1.setId(Integer.valueOf(4));
         Contractor contractor2 = new Contractor();
         contractor2.setName("Contractor2");
-        contractor2.setId(new Integer(5));
+        contractor2.setId(Integer.valueOf(5));
         Contractor contractor3 = new Contractor();
         contractor3.setName("Contractor3");
-        contractor3.setId(new Integer(6));
+        contractor3.setId(Integer.valueOf(6));
 
         ResultsRow row = new ResultsRow();
         row.add(company1);
@@ -280,14 +280,14 @@ public class ExportResultsIteratorTest extends TestCase
         Company company1 = (Company) DynamicUtil.createObject(Collections.singleton(Company.class));
         company1.setName("Company1");
         company1.setVatNumber(101);
-        company1.setId(new Integer(1));
+        company1.setId(Integer.valueOf(1));
 
         Department department1 = new Department();
         department1.setName("Department1");
-        department1.setId(new Integer(2));
+        department1.setId(Integer.valueOf(2));
         Department department2 = new Department();
         department2.setName("Department2");
-        department2.setId(new Integer(3));
+        department2.setId(Integer.valueOf(3));
 
         ResultsRow row1 = new ResultsRow();
         row1.add(department1);
@@ -339,14 +339,14 @@ public class ExportResultsIteratorTest extends TestCase
         Company company1 = (Company) DynamicUtil.createObject(Collections.singleton(Company.class));
         company1.setName("Company1");
         company1.setVatNumber(101);
-        company1.setId(new Integer(1));
+        company1.setId(Integer.valueOf(1));
 
         Department department1 = new Department();
         department1.setName("Department1");
-        department1.setId(new Integer(2));
+        department1.setId(Integer.valueOf(2));
         Department department2 = new Department();
         department2.setName("Department2");
-        department2.setId(new Integer(3));
+        department2.setId(Integer.valueOf(3));
 
         Employee e1 = new Employee();
         e1.setName("Employee1");

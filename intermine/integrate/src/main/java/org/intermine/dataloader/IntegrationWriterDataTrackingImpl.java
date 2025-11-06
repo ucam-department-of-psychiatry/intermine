@@ -134,7 +134,7 @@ public class IntegrationWriterDataTrackingImpl extends IntegrationWriterAbstract
             Constructor<? extends DataTracker> con = trackerClass.getConstructor(
                     new Class[] {Database.class, Integer.TYPE, Integer.TYPE});
             DataTracker newDataTracker = con.newInstance(new Object[] {db,
-                new Integer(maxSize), new Integer(commitSize)});
+                Integer.valueOf(maxSize), new Integer(commitSize)});
 
             Constructor<? extends IntegrationWriterDataTrackingImpl> con2 =
                 iwClass.getConstructor(new Class[] {ObjectStoreWriter.class, DataTracker.class,

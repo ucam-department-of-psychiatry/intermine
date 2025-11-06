@@ -291,7 +291,7 @@ public final class SearchResults implements Iterable<SearchResult>
                 throw new RuntimeException("unknown WebSearchable: " + name);
             }
 
-            Float luceneScore = new Float(topDocs.scoreDocs[i].score);
+            Float luceneScore = Float.valueOf(topDocs.scoreDocs[i].score);
             hitMap.put(webSearchable, luceneScore);
 
             tags.put(webSearchable, new HashSet<String>(asList(split(doc.get("tags")))));

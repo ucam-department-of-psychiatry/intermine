@@ -375,7 +375,7 @@ public class TagManager
      */
     public synchronized Tag getTagById(int id) {
         try {
-            return (Tag) osWriter.getObjectById(new Integer(id), Tag.class);
+            return (Tag) osWriter.getObjectById(Integer.valueOf(id), Tag.class);
         } catch (ObjectStoreException e) {
             throw new RuntimeException("Getting tag from database failed", e);
         }

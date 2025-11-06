@@ -49,8 +49,8 @@ public class ItemToObjectTranslatorTest extends QueryTestCase
         super.setUp();
         translator = new ItemToObjectTranslator(Model.getInstanceByName("testmodel"), null);
         translator.setObjectStore(ObjectStoreFactory.getObjectStore("os.unittest"));
-        translator.idToNamespace.put(new Integer(0), "fish");
-        translator.namespaceToId.put("fish", new Integer(0));
+        translator.idToNamespace.put(Integer.valueOf(0), "fish");
+        translator.namespaceToId.put("fish", Integer.valueOf(0));
     }
 
     public void testTranslateQueryNoConstraint() throws Exception {
@@ -81,7 +81,7 @@ public class ItemToObjectTranslatorTest extends QueryTestCase
         original.addFrom(qc2);
         original.addToSelect(qc2);
         QueryField qf2 = new QueryField(qc2, "id");
-        SimpleConstraint sc2 = new SimpleConstraint(qf2, ConstraintOp.EQUALS, new QueryValue(new Integer(42)));
+        SimpleConstraint sc2 = new SimpleConstraint(qf2, ConstraintOp.EQUALS, new QueryValue(Integer.valueOf(42)));
         original.setConstraint(sc2);
 
         assertEquals(expected, translator.translateQuery(original));
@@ -101,7 +101,7 @@ public class ItemToObjectTranslatorTest extends QueryTestCase
         original.addFrom(qc2);
         original.addToSelect(qc2);
         QueryField qf2 = new QueryField(qc2, "id");
-        BagConstraint bc2 = new BagConstraint(qf2, ConstraintOp.IN, Arrays.asList(new Object[] {new Integer(12), new Integer(15), new Integer(19)}));
+        BagConstraint bc2 = new BagConstraint(qf2, ConstraintOp.IN, Arrays.asList(new Object[] {Integer.valueOf(12), new Integer(15), new Integer(19)}));
         original.setConstraint(bc2);
 
         assertEquals(expected, translator.translateQuery(original));
@@ -145,7 +145,7 @@ public class ItemToObjectTranslatorTest extends QueryTestCase
         original.addFrom(qc2);
         original.addToSelect(qc2);
         QueryField qf3 = new QueryField(qc2, "id");
-        SimpleConstraint sc3 = new SimpleConstraint(qf3, ConstraintOp.EQUALS, new QueryValue(new Integer(42)));
+        SimpleConstraint sc3 = new SimpleConstraint(qf3, ConstraintOp.EQUALS, new QueryValue(Integer.valueOf(42)));
         original.setConstraint(sc3);
 
         assertEquals(expected, translator.translateQuery(original));
@@ -188,7 +188,7 @@ public class ItemToObjectTranslatorTest extends QueryTestCase
         Map fieldMap = ((DynamicBean) ((net.sf.cglib.proxy.Factory) result).getCallback(0)).getMap();
         ProxyReference o = (ProxyReference) fieldMap.get("Company");
         assertNotNull(o);
-        assertEquals(new Integer(2), o.getId());
+        assertEquals(Integer.valueOf(2), o.getId());
 
         Collection c = ((Department) result).getEmployees();
         assertTrue(c instanceof SingletonResults);
@@ -198,8 +198,8 @@ public class ItemToObjectTranslatorTest extends QueryTestCase
         expected.addToSelect(qc);
         QueryField qf = new QueryField(qc, "id");
         Set ids = new HashSet();
-        ids.add(new Integer(3));
-        ids.add(new Integer(4));
+        ids.add(Integer.valueOf(3));
+        ids.add(Integer.valueOf(4));
         BagConstraint bc = new BagConstraint(qf, ConstraintOp.IN, ids);
         expected.setConstraint(bc);
         assertEquals(expected, ((SingletonResults) c).getQuery());
