@@ -20,31 +20,36 @@ configurations {
 tasks.test.dependsOn(':intermine-testresources:buildDB')
 
 dependencies {
-    compile project(':intermine-model')
+    implementation project(':intermine-model')
     implementation 'org.postgresql:postgresql:42.7.8'
     implementation 'commons-io:commons-io:2.20.0'
     implementation 'commons-beanutils:commons-beanutils:1.11.0'
-    compile group: 'com.zaxxer', name: 'HikariCP', version: '3.2.0', transitive: false // conflict with log4j library this JAR needs
-    //compile 'org.slf4j:slf4j-jdk14:1.7.10' // hikari needs this
+    implementation 'org.apache.torque:torque-runtime:5.1'
+    implementation group: 'com.zaxxer', name: 'HikariCP', version: '3.2.0', transitive: false // conflict with log4j library this JAR needs
+    //implementation 'org.slf4j:slf4j-jdk14:1.7.10' // hikari needs this
 
-    compile group: 'net.iharder', name: 'base64', version: '2.3.8' //not clear wich version is currently used
-    compile group: 'au.com.bytecode', name: 'opencsv', version: '2.4' //version 2.3 not available in maven
-    compile group: 'org.ow2.asm', name: 'asm', version: '4.2'
-    compile group: 'mockobjects', name: 'mockobjects-core', version: '0.09'
-    compile group: 'mockobjects', name: 'mockobjects-jdk1.3', version: '0.09'
+    implementation group: 'net.iharder', name: 'base64', version: '2.3.8' //not clear wich version is currently used
+    implementation group: 'au.com.bytecode', name: 'opencsv', version: '2.4' //version 2.3 not available in maven
+    implementation group: 'org.ow2.asm', name: 'asm', version: '4.2'
+    implementation group: 'mockobjects', name: 'mockobjects-core', version: '0.09'
+    implementation group: 'mockobjects', name: 'mockobjects-jdk1.3', version: '0.09'
     provided fileTree(dir: 'libs', include: '*.jar') // eventually replace torque
     testImplementation project(path: ':intermine-testresources', configuration: 'testArtifacts')
     antlr 'org.antlr:antlr:2.7.6-caching'
 }
 
-jar {
-    dependsOn configurations.runtimeOnly
-    // put all the JARs included in `provided` config and include them in the JAR
-    from {
-        (configurations.provided).collect {
-            it.isDirectory() ? it : zipTree(it)
+tasks.named('jar', Jar) {
+    from({
+        configurations.provided.collect { file ->
+            file.isDirectory() ? file : zipTree(file)
         }
-    }
+    })
+
+    from({
+        configurations.runtimeClasspath.collect { file ->
+            file.isDirectory() ? file : zipTree(file)
+        }
+    })
 }
 
 artifacts {

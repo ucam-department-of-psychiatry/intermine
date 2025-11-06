@@ -26,30 +26,34 @@ configurations {
 }
 
 dependencies {
-    compile project(':intermine-pathquery')
-    compile project(':intermine-integrate')
-    compile group: 'xalan', name: 'xalan', version: '2.7.3' // version 1.3 not in maven
-    compile group: 'org.apache.solr', name: 'solr-solrj', version: '8.11.4'
-    compile group: 'org.apache.lucene', name: 'lucene-core', version: '3.0.2'
-    compile group: 'org.apache.lucene', name: 'lucene-snowball', version: '3.0.2'
-    compile group: 'org.apache.lucene', name: 'lucene-highlighter', version: '3.0.2'
-    compile group: 'org.apache.lucene', name: 'lucene-queries', version: '3.0.2'
-    compile group: 'org.json', name: 'json', version: '20231013'
-    compile group: "org.apache.jena", name: "apache-jena-libs", version: "4.2.0"
+    implementation project(':intermine-pathquery')
+    implementation project(':intermine-integrate')
+    implementation group: 'xalan', name: 'xalan', version: '2.7.3' // version 1.3 not in maven
+    implementation group: 'org.apache.solr', name: 'solr-solrj', version: '8.11.4'
+    implementation group: 'org.apache.lucene', name: 'lucene-core', version: '3.0.2'
+    implementation group: 'org.apache.lucene', name: 'lucene-snowball', version: '3.0.2'
+    implementation group: 'org.apache.lucene', name: 'lucene-highlighter', version: '3.0.2'
+    implementation group: 'org.apache.lucene', name: 'lucene-queries', version: '3.0.2'
+    implementation group: 'org.json', name: 'json', version: '20231013'
+    implementation group: "org.apache.jena", name: "apache-jena-libs", version: "4.2.0"
     testImplementation project(path: ':intermine-testresources', configuration: 'testArtifacts')
     testImplementation group: 'xmlunit', name: 'xmlunit', version: '1.0'
     testImplementation project(path: ':intermine-objectstore', configuration: 'testOutput')
     testImplementation project(':intermine-resources')
 }
 
-jar {
-    dependsOn configurations.runtimeOnly
-    // put all the JARs included in `provided` config and include them in the JAR
-    from {
-        (configurations.provided).collect {
-            it.isDirectory() ? it : zipTree(it)
+tasks.named('jar', Jar) {
+    from({
+        configurations.provided.collect { file ->
+            file.isDirectory() ? file : zipTree(file)
         }
-    }
+    })
+
+    from({
+        configurations.runtimeClasspath.collect { file ->
+            file.isDirectory() ? file : zipTree(file)
+        }
+    })
 }
 
 artifacts {
