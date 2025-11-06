@@ -12,7 +12,7 @@ package org.intermine.webservice.server.bg;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.intermine.api.InterMineAPI;
 import org.intermine.modelproduction.MetadataManager;
 import org.intermine.objectstore.ObjectStoreWriter;

@@ -27,7 +27,7 @@ import java.util.Set;
 
 import static org.apache.commons.collections.CollectionUtils.collect;
 import static org.apache.commons.collections.TransformerUtils.invokerTransformer;
-import static org.apache.commons.lang.StringUtils.split;
+import static org.apache.commons.lang3.StringUtils.split;
 
 /**
  * A service for adding tags to a template.

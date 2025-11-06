@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Collection of commonly used String utilities

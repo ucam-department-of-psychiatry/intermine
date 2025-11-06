@@ -12,7 +12,7 @@ package org.intermine.web.struts.oauth2;
 
 import java.util.Properties;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.oltu.oauth2.common.OAuthProviderType;
 
 /**

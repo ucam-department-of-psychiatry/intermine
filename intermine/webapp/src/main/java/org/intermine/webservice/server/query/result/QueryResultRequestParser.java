@@ -12,7 +12,7 @@ package org.intermine.webservice.server.query.result;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.intermine.api.query.QueryStore;
 import org.intermine.webservice.server.exceptions.BadRequestException;
 import org.intermine.webservice.server.query.QueryRequestParser;

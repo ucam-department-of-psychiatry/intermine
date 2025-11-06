@@ -21,7 +21,7 @@ import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.intermine.web.context.InterMineContext;
 import org.json.JSONObject;
 import org.xml.sax.Attributes;

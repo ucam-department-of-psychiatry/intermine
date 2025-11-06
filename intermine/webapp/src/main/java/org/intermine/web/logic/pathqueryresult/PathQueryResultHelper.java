@@ -16,7 +16,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.intermine.api.profile.InterMineBag;
 import org.intermine.metadata.AttributeDescriptor;

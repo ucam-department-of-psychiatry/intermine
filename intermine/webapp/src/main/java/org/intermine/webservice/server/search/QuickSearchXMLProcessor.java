@@ -17,7 +17,7 @@ import java.util.Map.Entry;
 
 import org.intermine.web.search.KeywordSearchResult;
 
-import static org.apache.commons.lang.StringEscapeUtils.escapeXml;
+import static org.apache.commons.lang3.StringEscapeUtils.escapeXml;
 
 /**
  * A result processor that outputs results as XML.

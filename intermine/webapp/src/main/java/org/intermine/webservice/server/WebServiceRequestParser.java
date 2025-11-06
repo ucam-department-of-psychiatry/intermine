@@ -18,7 +18,7 @@ import java.util.Properties;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.intermine.util.PropertiesUtil;
 import org.intermine.metadata.StringUtil;
 import org.intermine.web.context.InterMineContext;
@@ -176,7 +176,7 @@ public class WebServiceRequestParser
         Integer ret = null;
         if (stringValue != null && !"".equals(stringValue)) {
             try {
-                ret = new Integer(stringValue);
+                ret = Integer.valueOf(stringValue);
                 if (ret.intValue() < minValue || ret.intValue() > maxValue) {
                     throw new BadRequestException("Invalid value of " + name + " parameter: " + ret
                             + " Parameter should have value from " + minValue + " to "

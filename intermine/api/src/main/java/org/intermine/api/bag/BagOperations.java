@@ -12,7 +12,7 @@ package org.intermine.api.bag;
 
 import java.util.Collection;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.intermine.api.bag.operations.BagOperation;
 import org.intermine.api.bag.operations.BagOperationException;
 import org.intermine.api.bag.operations.Intersection;

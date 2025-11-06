@@ -10,7 +10,7 @@ package org.intermine.web.logic.results;
  *
  */
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.intermine.pathquery.ConstraintValueParser;
 
 import java.util.Date;

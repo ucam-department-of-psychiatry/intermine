@@ -13,8 +13,8 @@ package org.intermine.api.query;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.apache.commons.lang.text.StrMatcher;
-import org.apache.commons.lang.text.StrTokenizer;
+import org.apache.commons.lang3.text.StrMatcher;
+import org.apache.commons.lang3.text.StrTokenizer;
 
 /*
  * Copyright (C) 2002-2022 FlyMine

@@ -14,7 +14,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.intermine.api.userprofile.Tag;
 import org.intermine.api.profile.TagManager;
 import org.intermine.api.tag.TagNames;

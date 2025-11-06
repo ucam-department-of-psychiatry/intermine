@@ -10,7 +10,7 @@ package org.intermine.webservice.server.query;
  *
  */
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.intermine.api.InterMineAPI;
 import org.intermine.api.profile.Profile;
 import org.intermine.webservice.server.Format;

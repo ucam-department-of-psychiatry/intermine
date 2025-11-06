@@ -11,7 +11,7 @@ package org.intermine.webservice.server.jbrowse.util;
  */
 
 
-import static org.apache.commons.lang.StringEscapeUtils.escapeJava;
+import static org.apache.commons.lang3.StringEscapeUtils.escapeJava;
 
 import java.util.Map;
 

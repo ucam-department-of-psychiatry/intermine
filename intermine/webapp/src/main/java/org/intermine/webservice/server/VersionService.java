@@ -10,8 +10,8 @@ package org.intermine.webservice.server;
  *
  */
 
-import static org.apache.commons.lang.StringUtils.defaultString;
-import static org.apache.commons.lang.StringUtils.lowerCase;
+import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.apache.commons.lang3.StringUtils.lowerCase;
 import static org.intermine.metadata.StringUtil.trimSlashes;
 
 import java.util.ArrayList;

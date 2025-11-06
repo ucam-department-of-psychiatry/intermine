@@ -16,8 +16,8 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.apache.log4j.Logger;
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.ObjectUtils;
 import org.intermine.api.results.ResultElement;
 import org.intermine.objectstore.query.Results;
 

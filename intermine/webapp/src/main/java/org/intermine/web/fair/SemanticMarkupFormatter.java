@@ -9,7 +9,7 @@ package org.intermine.web.fair;
  * information or http://www.gnu.org/copyleft/lesser.html.
  *
  */
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.intermine.api.InterMineAPI;
 import org.intermine.api.profile.Profile;

@@ -12,7 +12,7 @@ package org.intermine.api.query.codegen;
 
 import java.util.Properties;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.intermine.api.profile.Profile;
 import org.intermine.api.util.AnonProfile;
 import org.intermine.pathquery.PathQuery;

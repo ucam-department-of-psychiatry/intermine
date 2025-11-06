@@ -12,7 +12,7 @@ package org.intermine.webservice.server.lists;
 
 import java.sql.SQLException;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.intermine.api.InterMineAPI;
 import org.intermine.api.bag.SharedBagManager;
 import org.intermine.api.bag.SharingInvite;

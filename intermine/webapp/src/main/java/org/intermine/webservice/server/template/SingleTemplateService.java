@@ -13,7 +13,7 @@ package org.intermine.webservice.server.template;
 import java.io.PrintWriter;
 import java.util.Arrays;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.intermine.api.InterMineAPI;
 import org.intermine.api.profile.Profile;
 import org.intermine.api.template.TemplateManager;

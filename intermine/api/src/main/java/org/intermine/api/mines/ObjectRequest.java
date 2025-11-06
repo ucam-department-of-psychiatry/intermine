@@ -10,7 +10,7 @@ package org.intermine.api.mines;
  *
  */
 
-import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 /**
  * A generic container for a request for information about an object.

@@ -10,7 +10,7 @@ package org.intermine.webservice.server.idresolution;
  *
  */
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.intermine.api.InterMineAPI;
 import org.intermine.api.idresolution.IDResolver;
 import org.intermine.webservice.server.core.JSONService;

@@ -10,7 +10,7 @@ package org.intermine.web.logic.config;
  *
  */
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * The webapp configuration for one field of a class.

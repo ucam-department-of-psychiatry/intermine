@@ -10,7 +10,7 @@ package org.intermine.webservice.server.widget;
  *
  */
 
-import static org.apache.commons.lang.StringUtils.isBlank;
+import static org.apache.commons.lang3.StringUtils.isBlank;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -19,7 +19,7 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.intermine.webservice.server.exceptions.BadRequestException;
 
 /**

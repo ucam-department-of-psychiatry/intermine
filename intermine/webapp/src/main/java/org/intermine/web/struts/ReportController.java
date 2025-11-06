@@ -51,7 +51,7 @@ import org.intermine.web.logic.results.InlineList;
 import org.intermine.web.logic.results.ReportObject;
 import org.intermine.web.logic.results.ReportObjectFactory;
 import org.intermine.web.logic.session.SessionMethods;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * New objectDetails.

@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.intermine.InterMineException;
 import org.intermine.api.template.ApiTemplate;
 import org.intermine.api.template.TemplateManager;

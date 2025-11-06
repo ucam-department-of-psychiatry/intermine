@@ -22,8 +22,8 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.collections.set.ListOrderedSet;
-import org.apache.commons.lang.ObjectUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.intermine.web.logic.widget.config.WidgetConfig;
 import org.intermine.metadata.TypeUtil;
 

@@ -10,7 +10,7 @@ package org.intermine.webservice.server.user;
  *
  */
 
-import static org.apache.commons.lang.StringUtils.isBlank;
+import static org.apache.commons.lang3.StringUtils.isBlank;
 
 import java.util.Arrays;
 import java.util.Collections;

@@ -13,7 +13,7 @@ package org.intermine.webservice.server.idresolution;
 import java.util.Date;
 import java.util.Iterator;
 
-import org.apache.commons.lang.time.DateUtils;
+import org.apache.commons.lang3.time.DateUtils;
 import org.intermine.api.idresolution.IDResolver;
 import org.intermine.api.idresolution.Job;
 

@@ -12,7 +12,7 @@ package org.intermine.api.util;
 
 import java.util.Date;
 
-import org.apache.commons.lang.RandomStringUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 
 /**
  *

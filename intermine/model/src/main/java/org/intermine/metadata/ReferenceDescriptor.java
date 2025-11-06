@@ -10,7 +10,7 @@ package org.intermine.metadata;
  *
  */
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Describes a field that references a single other class (i.e. not a collection

@@ -19,7 +19,7 @@ import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import org.intermine.api.query.QueryStore;
 import org.intermine.api.query.QueryStoreException;

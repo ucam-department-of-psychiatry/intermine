@@ -19,7 +19,7 @@ import java.util.HashSet;
 import java.util.TreeSet;
 import java.util.LinkedHashSet;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.intermine.metadata.AttributeDescriptor;
 import org.intermine.metadata.ClassDescriptor;

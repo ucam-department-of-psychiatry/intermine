@@ -31,7 +31,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 
 import javax.sql.DataSource;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.intermine.metadata.StringUtil;
 import org.intermine.util.PropertiesUtil;

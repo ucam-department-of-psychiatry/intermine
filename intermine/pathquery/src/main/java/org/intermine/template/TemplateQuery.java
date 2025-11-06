@@ -31,7 +31,7 @@ import org.intermine.pathquery.PathConstraintSubclass;
 import org.intermine.pathquery.PathQuery;
 import org.intermine.pathquery.Path;
 import org.intermine.pathquery.PathException;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.intermine.metadata.AttributeDescriptor;
 import org.intermine.template.xml.TemplateQueryBinding;
 

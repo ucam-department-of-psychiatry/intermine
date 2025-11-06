@@ -24,10 +24,10 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 
-import static org.apache.commons.lang.StringEscapeUtils.escapeJava;
+import static org.apache.commons.lang3.StringEscapeUtils.escapeJava;
 
 /**
  * Base class for formatters that process JSON data. The

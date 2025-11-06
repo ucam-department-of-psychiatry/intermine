@@ -10,7 +10,7 @@ package org.intermine.webservice.server.path;
  *
  */
 
-import static org.apache.commons.lang.StringUtils.split;
+import static org.apache.commons.lang3.StringUtils.split;
 
 import java.util.HashMap;
 import java.util.Iterator;

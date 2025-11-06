@@ -12,7 +12,7 @@ package org.intermine.webservice.server.lists;
 
 import static org.apache.commons.collections.CollectionUtils.collect;
 import static org.apache.commons.collections.TransformerUtils.invokerTransformer;
-import static org.apache.commons.lang.StringUtils.split;
+import static org.apache.commons.lang3.StringUtils.split;
 
 import java.util.Collections;
 import java.util.HashSet;
