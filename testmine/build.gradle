@@ -33,11 +33,17 @@ subprojects {
     }
 
     task copyMineProperties(type: Copy) {
+        def testModelProperties = file(minePropertyFile)
+
+        doFirst {
+            if (!testModelProperties.exists()) {
+                throw new GradleException("Required file not found: $minePropertyFile")
+            }
+        }
         description "Copies mine specific intermine.properties file (from .intermine directory) into resources output to be included in the war"
         from minePropertyFile
         into sourceSets.main.output.resourcesDir
         rename { fileName -> fileName.replace("testmodel.properties", "intermine.properties") }
-        inputs.sourceFiles.stopExecutionIfEmpty()
     }
 
     task copyDefaultProperties(type: Copy) {
