@@ -56,7 +56,3 @@ subprojects {
         rename { fileName -> fileName.replace("default.intermine.test.properties", "default.intermine.properties") }
     }
 }
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '4.10'
-}
