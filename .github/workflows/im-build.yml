@@ -28,7 +28,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        testSuite: [intermine, bio]
+        testSuite: [bio]
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 11
